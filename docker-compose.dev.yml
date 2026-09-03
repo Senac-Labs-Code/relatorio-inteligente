@@ -16,7 +16,7 @@ services:
     depends_on:
       radar-postgres:
         condition: service_healthy
-    command: npm run docker:dev
+    command: npm run dev
 
   radar-postgres:
     image: postgres:16-alpine
