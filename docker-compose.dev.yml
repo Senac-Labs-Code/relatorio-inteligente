@@ -1,0 +1,41 @@
+services:
+  radar-ia:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: radaria-app-dev:latest
+    container_name: radar-ia-dev
+    restart: 'no'
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - radaria_node_modules:/app/node_modules
+    env_file:
+      - .env.development
+    depends_on:
+      radar-postgres:
+        condition: service_healthy
+    command: npm run dev
+
+  radar-postgres:
+    image: postgres:16-alpine
+    container_name: radar-ia-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-radaria}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-radaria}
+      POSTGRES_DB: ${POSTGRES_DB:-radaria_dev}
+    ports:
+      - "5432:5432"
+    volumes:
+      - radaria_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-radaria} -d ${POSTGRES_DB:-radaria_dev}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  radaria_node_modules:
+  radaria_postgres_data:
