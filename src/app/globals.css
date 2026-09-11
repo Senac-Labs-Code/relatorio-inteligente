@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --azul-senac: #00528F;
+  --azul-senac-escuro: #003B66;
+  --azul-senac-suave: #CFE7F7;
+  --azul-senac-tint: #EEF7FC;
+
+  --tinta: #06263F;
+  --tinta-2: #14334A;
+  --tinta-3: #557086;
+  --tinta-4: #344F64;
+
+  --fundo: #F6FAFD;
+  --fundo-escuro: #E8F3FA;
+
+  --borda: #E5EEF5;
+  --borda-destaque: #00528F;
+
+  --verde-destaque: #1F7A74;
+  --vermelho-destaque: #B44A5A;
+
+  --fundo: #F4F8FB;
   --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-fundo-pagina: var(--fundo);
+  --color-fundo-alternativo: var(--fundo-escuro);
+  --color-fundo-header: var(--tinta);
+  --color-texto-principal: var(--tinta);
+  --color-texto-secundario: var(--tinta-2);
+  --color-texto-suave: var(--tinta-3);
+  --color-texto-sobre-escuro: var(--fundo);
+  --color-primaria: var(--azul-senac);
+  --color-primaria-hover: var(--azul-senac-escuro);
+  --color-primaria-suave: var(--azul-senac-suave);
+  --color-primaria-tint: var(--azul-senac-tint);
+  --color-borda-padrao: var(--borda);
+  --color-border-escuro: var(--tinta-2);
+  --color-border-clara: var(--tinta-3);
+  --color-sucesso: var(--verde-destaque);
+  --color-error: var(--vermelho-destaque);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-mono-jb: var(--font-jetbrains-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
