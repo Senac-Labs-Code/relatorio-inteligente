@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile.dev
     image: radaria-app-dev:latest
     container_name: radar-ia-dev
-    restart: 'no'
+    restart: "no"
     ports:
       - "3000:3000"
     volumes:
@@ -31,7 +31,11 @@ services:
     volumes:
       - radaria_postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-radaria} -d ${POSTGRES_DB:-radaria_dev}"]
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-radaria} -d ${POSTGRES_DB:-radaria_dev}",
+        ]
       interval: 5s
       timeout: 5s
       retries: 5
