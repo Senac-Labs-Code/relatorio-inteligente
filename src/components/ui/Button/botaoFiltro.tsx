@@ -17,7 +17,7 @@ export default function BotaoFiltro({
       className={
         ativo
           ? "flex items-center gap-2 rounded-full bg-(--color-destaque) px-4 py-2 text-white transition-colors duration-300"
-          : "flex items-center gap-2 rounded-full border border-(--color-primaria-suave) px-4 py-2text-(--tinta-2) transition-colors duration-300 hover:border-(--color-primaria)"
+          : "py-2text-(--tinta-2) flex items-center gap-2 rounded-full border border-(--color-primaria-suave) px-4 transition-colors duration-300 hover:border-(--color-primaria)"
       }
     >
       <span className="h-1.5 w-1.5 rounded-full bg-(--color-primaria)" />

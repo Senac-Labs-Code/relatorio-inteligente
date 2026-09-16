@@ -1,26 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --azul-senac: #00528F;
-  --azul-senac-escuro: #003B66;
-  --azul-senac-suave: #CFE7F7;
-  --azul-senac-tint: #EEF7FC;
+  --azul-senac: #00528f;
+  --azul-senac-escuro: #003b66;
+  --azul-senac-suave: #cfe7f7;
+  --azul-senac-tint: #eef7fc;
+  --laranja-senac: #ef871e;
 
-  --tinta: #06263F;
-  --tinta-2: #14334A;
+  --tinta: #06263f;
+  --tinta-2: #14334a;
   --tinta-3: #557086;
-  --tinta-4: #344F64;
+  --tinta-4: #344f64;
 
-  --fundo: #F6FAFD;
-  --fundo-escuro: #E8F3FA;
+  --fundo: #f6fafd;
+  --fundo-escuro: #e8f3fa;
 
-  --borda: #E5EEF5;
-  --borda-destaque: #00528F;
+  --borda: #e5eef5;
+  --borda-destaque: #00528f;
 
-  --verde-destaque: #1F7A74;
-  --vermelho-destaque: #B44A5A;
+  --verde-destaque: #1f7a74;
+  --vermelho-destaque: #b44a5a;
 
-  --fundo: #F4F8FB;
+  --fundo: #f4f8fb;
   --foreground: #171717;
 }
 
@@ -32,6 +33,7 @@
   --color-texto-secundario: var(--tinta-2);
   --color-texto-suave: var(--tinta-3);
   --color-texto-sobre-escuro: var(--fundo);
+  --color-destaque: var(--tinta);
   --color-primaria: var(--azul-senac);
   --color-primaria-hover: var(--azul-senac-escuro);
   --color-primaria-suave: var(--azul-senac-suave);
@@ -44,6 +46,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-mono-jb: var(--font-jetbrains-mono);
+  --font-manrope: var(--font-manrope);
 }
 
 body {

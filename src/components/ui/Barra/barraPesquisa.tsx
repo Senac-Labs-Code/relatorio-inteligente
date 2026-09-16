@@ -22,9 +22,7 @@ export default function BarraPesquisa({
         value={valor}
         onChange={(e) => setValor(e.target.value)}
         placeholder={placeholder}
-        className="
-					text-primaria-tint focus:(--color-primaria) w-full rounded-full border
-					border-(--tinta-4) bg-(--tinta-2) py-2.5 pr-4 pl-9 text-sm outline-none placeholder:text-(--tinta-3)"
+        className="text-primaria-tint focus:(--color-primaria) w-full rounded-full border border-(--tinta-4) bg-(--tinta-2) py-2.5 pr-4 pl-9 text-sm outline-none placeholder:text-(--tinta-3)"
       />
     </div>
   );
