@@ -1,0 +1,12 @@
+.venv
+__pycache__
+*.pyc
+.git
+Dockerfile
+.env
+.env.*
+!.env.example
+logs
+caches
+*.log
+.DS_Store
