@@ -14,7 +14,7 @@ node_modules
 /coverage
 
 # vite
-/dist
+dist
 
 # production
 /build
@@ -39,4 +39,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-/frontend/src/generated/prisma
+**/generated/prisma

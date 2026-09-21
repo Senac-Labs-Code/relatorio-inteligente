@@ -12,7 +12,7 @@ ENV NODE_ENV=development
 
 COPY . .
 
-RUN npm install && chown -R node:node /app
+RUN npm ci && chown -R node:node /app
 
 USER node
 
