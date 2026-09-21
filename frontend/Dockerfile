@@ -12,10 +12,10 @@ ENV NODE_ENV=development
 
 COPY . .
 
-RUN npm install && chown -R node:node /app
+RUN npm ci && chown -R node:node /app
 
 USER node
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD ["npm", "run", "dev"]
