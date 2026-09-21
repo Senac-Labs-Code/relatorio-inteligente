@@ -51,6 +51,7 @@ services:
       - "${AGENTE_SERVICE_PORT:-8000}:8000"
     volumes:
       - ./agente-service:/app
+      - agente_service_venv:/app/.venv
     env_file:
       - .env
     depends_on:
@@ -82,4 +83,5 @@ services:
 volumes:
   frontend_node_modules:
   backend_node_modules:
+  agente_service_venv:
   radaria_postgres_data:
