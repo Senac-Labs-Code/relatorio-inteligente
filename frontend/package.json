@@ -6,9 +6,6 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "docker:up": "docker compose -f docker-compose.dev.yml up",
-    "docker:build": "docker compose -f docker-compose.dev.yml up --build",
-    "docker:down": "docker compose -f docker-compose.dev.yml down",
     "lint": "eslint"
   },
   "dependencies": {
