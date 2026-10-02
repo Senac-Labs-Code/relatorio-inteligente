@@ -3,9 +3,11 @@ export interface Tendencia {
   texto: string;
 }
 
-export interface Filtro {
+export interface Segmento {
   id: string;
   texto: string;
   insight: number;
   tendencia: Tendencia[];
 }
+
+export type Ordenacao = 'relevancia' | 'recentes' | 'citados' | 'impacto';

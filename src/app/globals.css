@@ -12,7 +12,7 @@
   --tinta-3: #557086;
   --tinta-4: #344f64;
 
-  --fundo: #f6fafd;
+  /* --fundo: #f6fafd; */
   --fundo-escuro: #e8f3fa;
 
   --borda: #e5eef5;
@@ -41,8 +41,8 @@
   --color-borda-padrao: var(--borda);
   --color-border-escuro: var(--tinta-2);
   --color-border-clara: var(--tinta-3);
-  --color-sucesso: var(--verde-destaque);
-  --color-error: var(--vermelho-destaque);
+  --color-positivo: var(--verde-destaque);
+  --color-negativo: var(--vermelho-destaque);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-mono-jb: var(--font-jetbrains-mono);

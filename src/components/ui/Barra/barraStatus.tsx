@@ -13,22 +13,22 @@ export default function BarraStatus({
   edicao,
 }: BarraStatusProps) {
   return (
-    <div className="flex flex-nowrap gap-3">
+    <div className="flex flex-nowrap gap-3 py-2">
       <BolinhaStatus />
 
-      <span className="font-mono-jb text-center text-[11px] tracking-[1px] text-[#557086]">
+      <span className="font-mono-jb text-center text-[11px] tracking-[1px] text-(--tinta-3)">
         ATUALIZADO • {dataAtualizacao} • {horaAtualizacao}
       </span>
 
       <Divisor variant="filtro" />
 
-      <span className="font-mono-jb text-center text-[11px] tracking-[1px] text-[#557086]">
+      <span className="font-mono-jb text-center text-[11px] tracking-[1px] text-(--tinta-3)">
         EDIÇÃO #{edicao}
       </span>
 
       <Divisor variant="filtro" />
 
-      <span className="font-mono-jb text-center text-[11px] tracking-[1px] text-[#557086]">
+      <span className="font-mono-jb text-center text-[11px] tracking-[1px] text-(--tinta-3)">
         CURADORIA IA + VALIDAÇÃO HUMANA
       </span>
     </div>

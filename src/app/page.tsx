@@ -2,36 +2,59 @@
 
 import BarraStatus from "@/components/ui/Barra/barraStatus";
 import BotaoFiltro from "@/components/ui/Button/botaoFiltro";
-import { filtragem } from "@/data/filtro";
+import CardEstatisticas from "@/components/ui/Estatistica/cardEstatistica";
+import { estatisticasMock } from "@/data/estatistica";
+import { filtragem, filtragemCheck } from "@/data/filtro";
 import { useState } from "react";
+import Sobre from "./_components/sobre";
+import RedeIA from "./_components/redeIA";
+import Divisor from "@/components/ui/Divisor/divisor";
+import ArtigosPublicacoes from "./_components/artigosPublicacoes";
+import { FiltrosCheck } from "@/components/ui/Check/filtroCheck";
+import BotaoSalvar from "../components/ui/Button/botaoSalvar";
+import { Bookmark } from "lucide-react"
+import BarraArtigo from "@/components/ui/Barra/barraArtigo";
+import { Ordenacao } from "@/types/filtro";
+
 
 export default function Home() {
   const [filtroSelecionado, setFiltroSelecionado] = useState("todos");
+  const [clicado, setClicado] = useState(false);
+  const [ordenacao, setOrdenacao] = useState<Ordenacao>("relevancia");
+
+  const filtroAtual = filtragem.find((filtro) => filtro.id === filtroSelecionado)!
 
   return (
-    <div className="px-8 py-5 sm:px-10 sm:py-7">
+    // remover pb-30
+    <div className="pb-30 px-6 sm:px-10 md:px-14 lg:px-18 xl:px-22 bg-primaria-tint">
       <section aria-label="Sobre o sistema">
-        <BarraStatus
-          dataAtualizacao="19 MAIO 2026"
-          horaAtualizacao="14:32"
-          edicao={142}
-        />
-
-        <div className="py-5">
-          <h1 className="font-manrope box-border text-[29px] leading-none font-bold tracking-tighter text-(--color-texto-principal) sm:text-[40px] md:text-[50px] lg:text-[60px]">
-            Onde a inteligência artificial está
-            <em className="text-(--laranja-senac)"> chegando </em>
-            nos setores em que você ensina.
-          </h1>
-
-          <p className="py-3 text-[16px] font-light text-[#17415F] md:text-[18px] lg:text-[22px]">
-            Mapa vivo de tendências de IA por segmento profissional, alimentado
-            por curadoria automatizada de notícias, publicações acadêmicas e
-            relatórios setoriais — para decisões pedagógicas na educação
-            profissional.
-          </p>
-        </div>
+        <Sobre />
       </section>
+
+      <div className="mb-15 mt-7 grid grid-cols-2 border-t border-[rgba(0,82,143,0.14)] *:border-b *:border-[rgba(0,82,143,0.14)] md:grid-cols-4">
+        <CardEstatisticas
+          titulo="INSIGHTS ATIVOS"
+          dado={estatisticasMock.insightsAtivos}
+        />
+        <CardEstatisticas
+          titulo="FONTES MONITORADAS"
+          dado={estatisticasMock.fontesMonitoradas}
+        />
+        <CardEstatisticas
+          titulo="TENDÊNCIAS EMERGENTES"
+          dado={estatisticasMock.tendenciasEmergentes}
+        />
+        <CardEstatisticas
+          titulo="SEGMENTOS COBERTOS"
+          dado={estatisticasMock.segmentosCobertos}
+        />
+      </div>
+
+      <section aria-label="Rede de conhecimento em IA">
+        <RedeIA />
+      </section>
+
+      <Divisor variant="secao"/>
 
       <div className="flex flex-wrap gap-2">
         {filtragem.map((filtro) => (
@@ -44,6 +67,25 @@ export default function Home() {
           />
         ))}
       </div>
+
+      <ArtigosPublicacoes />
+
+      <Divisor variant="secao"/>
+
+      <FiltrosCheck filtros={filtragemCheck}/>
+
+      {/* finalizar botão de salvar os artigos */}
+      <BotaoSalvar />
+
+      {/* refinar campo de filtro acima dos artigos */}
+      <BarraArtigo
+        filtro={filtroAtual.texto} 
+        insight={filtroAtual.insight}
+        ordenacao={ordenacao}
+        aoMudarOrdenacao={setOrdenacao}
+        podeLimpar={filtroSelecionado !== "todos"}
+        aoLimpar={() => setFiltroSelecionado("todos")}
+      />
     </div>
   );
 }
