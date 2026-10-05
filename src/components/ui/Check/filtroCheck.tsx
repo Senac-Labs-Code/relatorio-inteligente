@@ -25,7 +25,7 @@ export function FiltrosCheck({ filtros }: FiltrosCheckProps) {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-2">
       {filtros.map((grupo, i) => {
         const aberto = abertos.includes(grupo.id);
         const idConteudo = `filtro-grupo-${grupo.id}`;
@@ -80,7 +80,7 @@ export function FiltrosCheck({ filtros }: FiltrosCheckProps) {
                           key={item.id}
                           type="button"
                           onClick={() => alternarFiltro(item.id)}
-                          className="flex w-full items-center gap-3"
+                          className="flex w-full items-center gap-2"
                         >
                           <span
                             className={`flex size-3 shrink-0 items-center justify-center rounded-xs border ${
