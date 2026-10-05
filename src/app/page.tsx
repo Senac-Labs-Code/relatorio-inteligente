@@ -15,6 +15,7 @@ import BotaoSalvar from "../components/ui/Button/botaoSalvar";
 import { Bookmark } from "lucide-react"
 import BarraArtigo from "@/components/ui/Barra/barraArtigo";
 import { Ordenacao } from "@/types/filtro";
+import BotaoCompartilhar from "@/components/ui/Button/botaoCompartilhar";
 
 
 export default function Home() {
@@ -76,6 +77,7 @@ export default function Home() {
 
       {/* finalizar botão de salvar os artigos */}
       <BotaoSalvar />
+      <BotaoCompartilhar />
 
       {/* refinar campo de filtro acima dos artigos */}
       <BarraArtigo
