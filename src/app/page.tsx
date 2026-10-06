@@ -1,29 +1,44 @@
 "use client";
+import { useMemo, useState } from "react";
 
 import BarraStatus from "@/components/ui/Barra/barraStatus";
 import BotaoFiltro from "@/components/ui/Button/botaoFiltro";
 import CardEstatisticas from "@/components/ui/Estatistica/cardEstatistica";
-import { estatisticasMock } from "@/data/estatistica";
-import { filtragem, filtragemCheck } from "@/data/filtro";
-import { useState } from "react";
 import Sobre from "./_components/sobre";
 import RedeIA from "./_components/redeIA";
 import Divisor from "@/components/ui/Divisor/divisor";
 import ArtigosPublicacoes from "./_components/artigosPublicacoes";
 import { FiltrosCheck } from "@/components/ui/Check/filtroCheck";
 import BotaoSalvar from "../components/ui/Button/botaoSalvar";
-import { Bookmark } from "lucide-react"
 import BarraArtigo from "@/components/ui/Barra/barraArtigo";
-import { Ordenacao } from "@/types/filtro";
 import BotaoCompartilhar from "@/components/ui/Button/botaoCompartilhar";
+import { ArtigoMetaTop } from "@/components/ui/Card/artigoCard";
 
+import { estatisticasMock } from "@/data/estatistica";
+import { filtragem, filtragemCheck } from "@/data/filtro";
+import { artigos } from '../data/artigo';
+
+import { Ordenacao } from "@/types/filtro";
+
+import { nomeFonte } from '../utils/rotulos';
+import { filtrarPorSegmento, ordenarArtigos } from '@/utils/filtrarArtigos';
 
 export default function Home() {
   const [filtroSelecionado, setFiltroSelecionado] = useState("todos");
   const [clicado, setClicado] = useState(false);
   const [ordenacao, setOrdenacao] = useState<Ordenacao>("relevancia");
 
-  const filtroAtual = filtragem.find((filtro) => filtro.id === filtroSelecionado)!
+  const fontes = filtragemCheck.find((g) => g.id === 'fontes')?.itens ?? [];
+  const filtroAtual = filtragem.find((filtro) => filtro.id === filtroSelecionado)!;
+
+  const artigosVisiveis = useMemo(
+    () => ordenarArtigos(filtrarPorSegmento(artigos, filtroSelecionado), ordenacao),
+    [filtroSelecionado, ordenacao],
+  );
+
+  function alternarFiltro(id: string) {
+    setFiltroSelecionado((atual) => (atual === id ? 'todos' : id));
+  };
 
   return (
     // remover pb-30
@@ -64,7 +79,7 @@ export default function Home() {
             texto={filtro.texto}
             insight={filtro.insight}
             ativo={filtroSelecionado === filtro.id}
-            onClick={() => setFiltroSelecionado(filtro.id)}
+            onClick={() => alternarFiltro(filtro.id)}
           />
         ))}
       </div>
@@ -88,6 +103,16 @@ export default function Home() {
         podeLimpar={filtroSelecionado !== "todos"}
         aoLimpar={() => setFiltroSelecionado("todos")}
       />
+
+      {artigosVisiveis.map((artigo) => (
+        <ArtigoMetaTop
+          key={artigo.id}
+          fonte={nomeFonte(artigo.fonte, fontes)}
+          tipo={artigo.tipo}
+          idioma={artigo.idioma}
+          dataPublicacao={artigo.dataPublicacao}
+        />
+      ))}
     </div>
   );
 }
