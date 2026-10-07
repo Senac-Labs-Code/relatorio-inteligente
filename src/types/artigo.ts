@@ -4,6 +4,12 @@ export type TipoFonte = (typeof tipos_fontes)[number]['chave'];
 export type Idioma = (typeof idiomas)[number]['chave'];
 export type Maturidade = (typeof maturidade)[number]['chave'];
 
+export interface Chip {
+	id: string;
+	texto: string;
+	categoria: 'segmento' | 'tendencia' | 'maturidade';
+}
+
 export interface Artigo {
 	id: string;
 	titulo: string;

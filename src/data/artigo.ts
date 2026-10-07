@@ -4,7 +4,7 @@ export const artigos: Artigo[] = [
   {
     id: "1",
     titulo:
-      "Modelos de visão multimodais superam radiologistas em detecção precoce de cancêr de mama em mamografias",
+      "Modelos de visão multimodais superam radiologistas em detecção precoce de câncer de mama em mamografias",
     resumo:
     "Estudo com 92 mil exames mostra que sistema de IA combinando imagem e histórico clínico atinge sensibilidade de 94,3%, contra 88,1% de seniores",
     url: "https://radar-ia.com/artigo-1",

@@ -1,7 +1,7 @@
 export const tipos_fontes = [
 	{ chave: "noticia", curto: "Notícia", filtro: "Notícia" },
 	{ chave: "paper", curto: "Paper", filtro: "Paper acadêmico" },
-	{ chave: "relatorio", curto: "Relatório setorial", filtro: "Relatório setprial" },
+	{ chave: "relatorio", curto: "Relatório", filtro: "Relatório setprial" },
 	{ chave: "caso", curto: "Caso de uso", filtro: "Caso de uso" },
 ] as const;
 

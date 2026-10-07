@@ -12,7 +12,8 @@ import { FiltrosCheck } from "@/components/ui/Check/filtroCheck";
 import BotaoSalvar from "../components/ui/Button/botaoSalvar";
 import BarraArtigo from "@/components/ui/Barra/barraArtigo";
 import BotaoCompartilhar from "@/components/ui/Button/botaoCompartilhar";
-import { ArtigoMetaTop } from "@/components/ui/Card/artigoCard";
+import { ArtigoMetaTop } from "@/components/ui/Artigo/artigoMetaTop";
+import { ArtigoCard } from "../components/ui/Artigo/ArtigoCard";
 
 import { estatisticasMock } from "@/data/estatistica";
 import { filtragem, filtragemCheck } from "@/data/filtro";
@@ -105,13 +106,7 @@ export default function Home() {
       />
 
       {artigosVisiveis.map((artigo) => (
-        <ArtigoMetaTop
-          key={artigo.id}
-          fonte={nomeFonte(artigo.fonte, fontes)}
-          tipo={artigo.tipo}
-          idioma={artigo.idioma}
-          dataPublicacao={artigo.dataPublicacao}
-        />
+        <ArtigoCard key={artigo.id} artigo={artigo} fontes={fontes} segmento={filtragem}/>
       ))}
     </div>
   );
