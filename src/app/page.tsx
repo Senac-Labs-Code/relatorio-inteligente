@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo, useState, Fragment } from "react";
 
 import BarraStatus from "@/components/ui/Barra/barraStatus";
 import BotaoFiltro from "@/components/ui/Button/botaoFiltro";
@@ -89,25 +89,42 @@ export default function Home() {
 
       <Divisor variant="secao"/>
 
-      <FiltrosCheck filtros={filtragemCheck}/>
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
+        <aside className="lg:w-60 lg:shrink-0">
+          <FiltrosCheck filtros={filtragemCheck}/>
+        </aside>
+
+        <section aria-label="Artigos" className="min-w-0 flex-1">
+          {/* refinar campo de filtro acima dos artigos */}
+          <BarraArtigo
+            filtro={filtroAtual.texto} 
+            insight={filtroAtual.insight}
+            ordenacao={ordenacao}
+            aoMudarOrdenacao={setOrdenacao}
+            podeLimpar={filtroSelecionado !== "todos"}
+            aoLimpar={() => setFiltroSelecionado("todos")}
+          />
+
+          <Divisor variant="secao"/>
+
+          {artigosVisiveis.map((artigo, index) => (
+            <Fragment key={artigo.id}>
+              {index > 0 && <Divisor variant="secao"/>}
+              <ArtigoCard key={artigo.id} artigo={artigo} fontes={fontes} segmento={filtragem}/>
+            </Fragment>
+            ))}
+        </section>
+      </div>
+
 
       {/* finalizar botão de salvar os artigos */}
       <BotaoSalvar />
       <BotaoCompartilhar />
 
-      {/* refinar campo de filtro acima dos artigos */}
-      <BarraArtigo
-        filtro={filtroAtual.texto} 
-        insight={filtroAtual.insight}
-        ordenacao={ordenacao}
-        aoMudarOrdenacao={setOrdenacao}
-        podeLimpar={filtroSelecionado !== "todos"}
-        aoLimpar={() => setFiltroSelecionado("todos")}
-      />
 
-      {artigosVisiveis.map((artigo) => (
-        <ArtigoCard key={artigo.id} artigo={artigo} fontes={fontes} segmento={filtragem}/>
-      ))}
+
+
+
     </div>
   );
 }
