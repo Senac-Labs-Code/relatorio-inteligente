@@ -110,7 +110,12 @@ export default function Home() {
           {artigosVisiveis.map((artigo, index) => (
             <Fragment key={artigo.id}>
               {index > 0 && <Divisor variant="secao"/>}
-              <ArtigoCard key={artigo.id} artigo={artigo} fontes={fontes} segmento={filtragem}/>
+              <ArtigoCard
+                artigo={artigo}
+                fontes={fontes}
+                segmento={filtragem}
+                posicao={index + 1}  
+              />
             </Fragment>
             ))}
         </section>

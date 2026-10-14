@@ -3,7 +3,12 @@
 import { useState } from "react";
 import { Check, Share2 } from "lucide-react";
 
-export default function BotaoCompartilhar({ url }: { url ?: string }) {
+interface CompartilharProps {
+	url?: string;
+	mostrarNome?: boolean;
+}
+
+export default function BotaoCompartilhar({ url, mostrarNome = false }: CompartilharProps) {
   const [copiado, setCopiado] = useState(false);
 
 	async function compartilhar() {
@@ -17,12 +22,17 @@ export default function BotaoCompartilhar({ url }: { url ?: string }) {
 	return (
 		<button
 			type="button"
-			aria-label={copiado ? "Link copiado" : "Copiar link"}
+			aria-label={mostrarNome ? undefined : copiado ? "Link copiado" : "Copiar link"}
 			onClick={compartilhar}
-			className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-[rgba(0,82,143,0.14)]
-				bg-(--fundo) text-(--azul-senac-escuro) transition-colors hover:bg-(--tinta-2) hover:text-primaria-tint"
+			className={`inline-flex items-center hover:text-primaria-tint ${
+				mostrarNome
+					? "h-9 w-full gap-2.5 px-3 justify-start text-[13px] hover:bg-(--tinta-2)"
+					: "h-8 w-8 rounded-sm justify-center"
+			}`}
+			// border border-[rgba(0,82,143,0.14)]bg-(--fundo) text-(--azul-senac-escuro) transition-colors hover:bg-(--tinta-2) -> parte removida temporariamente
 		>
-			{copiado ? <Check className="h-4 w-4"/> : <Share2 className="h-4 w-4" />}
+			{ copiado ? <Check className="h-4 w-4" aria-hidden="true"/> : <Share2 className="h-4 w-4" aria-hidden="true"/> }
+			{ mostrarNome && <span>{copiado ? "Link copiado" : "Compartilhar"}</span> }
 		</button>
 	)
 }

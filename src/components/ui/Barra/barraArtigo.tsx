@@ -20,8 +20,8 @@ export default function BarraArtigo({
   aoLimpar,
 }: BarraArtigoProps) {
   return (
-    <div className="flex items-end justify-between gap-10">
-      <div className="flex flex-col items-start sm:flex-row sm:items-center sm:gap-2">
+    <div className="flex items-end justify-between gap-4">
+      <div className="flex flex-col my-2 items-start sm:flex-row sm:items-center sm:gap-2">
         <span className="font-manrope text-[13px] text-(--tinta-3)">
           Exibindo:
         </span>
@@ -45,13 +45,15 @@ export default function BarraArtigo({
             )}
           </span>
 
-          <span className="font-mono-jb text-center text-[11px] text-(--tinta-3)">
+          <span className="font-mono-jb whitespace-nowrap text-center text-[11px] text-(--tinta-3)">
             {insight} artigos
           </span>
         </div>
       </div>
 
-      <SeletorOrdenacao valor={ordenacao} aoMudar={aoMudarOrdenacao} />
+      <div className="my-2 min-w-0">
+        <SeletorOrdenacao valor={ordenacao} aoMudar={aoMudarOrdenacao} />
+      </div>
     </div>
   );
 }

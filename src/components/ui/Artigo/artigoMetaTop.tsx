@@ -16,8 +16,8 @@ function Separador() {
 
 export function ArtigoMetaTop({ fonte, tipo, idioma, dataPublicacao }: ArticleMetaTopProps) {
   return (
-    <div className="artigo-meta-top flex items-center gap-2">
-      <span className="h-1 w-1 shrink-0 rounded-full bg-(--color-primaria)" aria-hidden="true"  />
+    <div className="flex items-center gap-1 mb-2">
+      <span className="h-1 w-1 shrink-0 rounded-full bg-(--color-primaria) mr-1" aria-hidden="true"  />
       <span className="font-mono-jb box-border text-center text-[10px] text-(-tinta-2) tracking-wide font-semibold uppercase">
         {fonte}
       </span>

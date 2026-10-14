@@ -25,7 +25,7 @@ export function FiltrosCheck({ filtros }: FiltrosCheckProps) {
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col">
       {filtros.map((grupo, i) => {
         const aberto = abertos.includes(grupo.id);
         const idConteudo = `filtro-grupo-${grupo.id}`;
@@ -34,7 +34,7 @@ export function FiltrosCheck({ filtros }: FiltrosCheckProps) {
           <Fragment key={grupo.id}>
             {i > 0 && <Divisor variant="secao" />}
 
-            <div className="flex flex-col">
+            <div className="flex flex-col my-1">
               <button
                 type="button"
                 onClick={() => alternarGrupoFiltro(grupo.id)}
