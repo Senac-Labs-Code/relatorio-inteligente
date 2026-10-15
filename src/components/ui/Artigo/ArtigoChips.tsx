@@ -16,7 +16,7 @@ interface ArtigosChipsProps {
 
 export function ArtigoChips({ chips }: ArtigosChipsProps) {
 	return (
-		<ul className="flex flex-wrap gap-2 mb-5">
+		<ul className="flex flex-wrap gap-2 mb-3">
 			{chips.map((chip) => (
 				<li key={`${chip.categoria}-${chip.id}`} className={`${style.base} ${style[chip.categoria]}`}>
 					{chip.texto}

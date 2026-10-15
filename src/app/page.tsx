@@ -73,7 +73,7 @@ export default function Home() {
 
       <Divisor variant="secao"/>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 py-4">
         {filtragem.map((filtro) => (
           <BotaoFiltro
             key={filtro.id}
@@ -89,7 +89,7 @@ export default function Home() {
 
       <Divisor variant="secao"/>
 
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
+      <div className="flex flex-col gap-0 lg:flex-row lg:items-start lg:gap-10">
         <aside className="lg:w-60 lg:shrink-0">
           <FiltrosCheck filtros={filtragemCheck}/>
         </aside>
@@ -120,16 +120,6 @@ export default function Home() {
             ))}
         </section>
       </div>
-
-
-      {/* finalizar botão de salvar os artigos */}
-      <BotaoSalvar />
-      <BotaoCompartilhar />
-
-
-
-
-
     </div>
   );
 }

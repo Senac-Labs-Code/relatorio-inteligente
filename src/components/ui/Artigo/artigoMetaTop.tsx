@@ -18,7 +18,7 @@ export function ArtigoMetaTop({ fonte, tipo, idioma, dataPublicacao }: ArticleMe
   return (
     <div className="flex items-center gap-1 mb-2">
       <span className="h-1 w-1 shrink-0 rounded-full bg-(--color-primaria) mr-1" aria-hidden="true"  />
-      <span className="font-mono-jb box-border text-center text-[10px] text-(-tinta-2) tracking-wide font-semibold uppercase">
+      <span className="shrink-0 font-mono-jb box-border text-center text-[10px] text-(-tinta-2) tracking-wide font-semibold uppercase">
         {fonte}
       </span>
       <Divisor variant='ponto' />
@@ -29,7 +29,7 @@ export function ArtigoMetaTop({ fonte, tipo, idioma, dataPublicacao }: ArticleMe
       </span>
       <Divisor variant='ponto' />
       <time
-        className="text-[10px] text-(--tinta-3) text-center font-mono-jb tracking-wide uppercase"
+        className="shrink-0 text-[10px] text-(--tinta-3) text-center font-mono-jb tracking-wide uppercase"
         dateTime={dataPublicacao}
       >
         {formatarDataPublicacao(dataPublicacao)}

@@ -59,8 +59,7 @@ export default function MenuAcoes({ children, atrasoFechamento }: MenuProps) {
 
 			{aberto && (
 				<div
-					onClick={agendarFechamento}
-					className="absolute right-0 top-full z-20 mt-1 flex min-w-40 flex-col divide-y divide-(--tinta-4)
+					className="absolute right-0 top-full z-20 mt-1 flex w-32 flex-col divide-y divide-(--tinta-4)/20
             rounded-lg border border-(--tinta-4) bg-(--fundo) p-1 shadow-[0_8px_24px_rgba(0,0,0,0.08)]"	
 				>
 					{children}

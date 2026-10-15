@@ -1,6 +1,6 @@
 export default function ArtigosPublicacoes() {
   return (
-    <div className="pt-5">
+    <div className="pb-3">
       <h2 className="text-(--tinta) text-2xl sm:text-3xl md:text-4xl font-light">
 				Artigos &
 				<em className="text-primaria-hover"> publicações </em>

@@ -1,6 +1,6 @@
 export default function RedeIA() {
   return (
-		<section>
+		<section className="pb-3">
 			<h2 className="text-(--tinta) text-2xl sm:text-3xl md:text-4xl font-light">
 				Rede de
 				<em className="text-primaria-hover"> conhecimento </em>
@@ -13,7 +13,6 @@ export default function RedeIA() {
 				</p>
 				<div className="text-[11px] text-(--tinta-3) tracking font-mono-jb text-center">§ 01 / MAPA</div>
 			</div>
-
 		</section>
 	)
 }

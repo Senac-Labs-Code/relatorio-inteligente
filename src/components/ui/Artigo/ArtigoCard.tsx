@@ -31,13 +31,13 @@ export function ArtigoCard({ artigo, fontes, segmento, posicao }: ArtigoCardProp
   }
 
   return (
-    <div className="mt-5">
-			<span className="font-mono-jb text-[10px] text-(--tinta-3) tracking-wider">
-				Nº {numero}
-			</span>
-
-      <div className="flex items-center justify-between gap-2">
+    <div className="py-2">
+      <div className=" flex items-start justify-between">
         <div className="min-w-0 flex-1">
+			    <span className="font-mono-jb text-[10px] text-(--tinta-3) tracking-wider">
+				    Nº {numero}
+			    </span>
+
           <ArtigoMetaTop
             fonte={nomeFonte(artigo.fonte, fontes)}
             tipo={artigo.tipo}
@@ -46,7 +46,7 @@ export function ArtigoCard({ artigo, fontes, segmento, posicao }: ArtigoCardProp
           />
         </div>
 
-      	<div className="shrink-0 sm:hidden mb-2">
+        <div className="shrink-0 sm:hidden">
         	<MenuAcoes>
           	<BotaoSalvar salvo={salvo} aoAlterar={alterarSalvo} mostrarNome />
           	<BotaoCompartilhar url={artigo.url} mostrarNome />
@@ -56,7 +56,7 @@ export function ArtigoCard({ artigo, fontes, segmento, posicao }: ArtigoCardProp
 
       {/* <Divisor variant="secaoMini" /> */}
 
-      <div className="mb-3 min-w-0">
+      <div className="mb-5 -mt-1 min-w-0">
         <h3 className="font-manrope pt-1 text-[18px] leading-5 font-bold text-(--color-texto-principal)">
           {artigo.titulo}
         </h3>
@@ -67,7 +67,7 @@ export function ArtigoCard({ artigo, fontes, segmento, posicao }: ArtigoCardProp
       </div>
 
       {/* chips da notícia */}
-			<div className="flex items-start justify-between gap-2">
+			<div className="flex items-start justify-between">
       	<div className="min-w-0">
         	<ArtigoChips chips={Chips(artigo, segmento)} />
       	</div>
