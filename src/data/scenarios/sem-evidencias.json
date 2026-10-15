@@ -1,0 +1,5 @@
+{
+  "name": "sem-evidencias",
+  "description": "Fixture local que mantém os fatos documentados de um acontecimento e retira o suporte de sua hipótese, que deve ser omitida da publicação.",
+  "unsupportedClaimIds": ["pl3307-hypothesis"]
+}

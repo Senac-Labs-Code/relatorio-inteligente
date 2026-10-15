@@ -1,0 +1,38 @@
+[
+  {
+    "id": "anvisa",
+    "name": "ANVISA",
+    "scope": "Regulação sanitária e medicamentos sujeitos a controle especial",
+    "updateStatus": "unverified",
+    "lastVerificationAt": null,
+    "lastAnalysisAt": null,
+    "coverageNote": "Amostra editorial selecionada. Não representa a totalidade das publicações da Agência nem uma coleta automatizada.",
+    "summaryEventIds": ["sncr-transition-2026", "anvisa-medication-error-campaign-2026"],
+    "lastValidSummary": null,
+    "summary": "Duas publicações da Anvisa no recorte: transição do SNCR e campanha de prevenção e notificação de erros de medicação. A amostra não representa todas as publicações da Agência."
+  },
+  {
+    "id": "dou",
+    "name": "Diário Oficial da União",
+    "scope": "Atos oficiais relacionados à regulação e ao mercado farmacêutico",
+    "updateStatus": "unverified",
+    "lastVerificationAt": null,
+    "lastAnalysisAt": null,
+    "coverageNote": "Amostra editorial selecionada. A seção não afirma cobrir todas as publicações do DOU.",
+    "summaryEventIds": ["cmed-price-adjustment-2026"],
+    "lastValidSummary": null,
+    "summary": "A amostra traz a Resolução CM-CMED nº 4/2026 como referência histórica, publicada fora da janela de 30 dias; não há novidade recente do DOU demonstrada neste conjunto."
+  },
+  {
+    "id": "camara",
+    "name": "Câmara dos Deputados",
+    "scope": "Proposições legislativas com possível relação com farmácias e drogarias",
+    "updateStatus": "unverified",
+    "lastVerificationAt": null,
+    "lastAnalysisAt": null,
+    "coverageNote": "Amostra editorial selecionada. Proposições são projetos e não equivalem a normas vigentes.",
+    "summaryEventIds": ["pl-2664-2025", "pl-3307-2025"],
+    "lastValidSummary": null,
+    "summary": "A amostra reúne duas proposições em tramitação relacionadas ao varejo farmacêutico. Ambas são históricas, sem movimentação demonstrada na janela recente."
+  }
+]

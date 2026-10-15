@@ -1,0 +1,16 @@
+{
+  "name": "anvisa-indisponivel",
+  "description": "Fixture local de falha isolada com preservação do último resumo válido de demonstração.",
+  "sourceOverrides": {
+    "anvisa": {
+      "updateStatus": "error",
+      "summaryEventIds": [],
+      "lastValidSummary": {
+        "eventIds": ["sncr-transition-2026"],
+        "referenceDate": "2026-10-15",
+        "demonstration": true,
+        "note": "Fixture de teste; não é registro de execução real."
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "sem-novidades",
+  "description": "Fixture local para demonstrar consulta sem novos acontecimentos no recorte.",
+  "sourceOverrides": {
+    "anvisa": { "updateStatus": "no-updates", "summaryEventIds": [], "lastValidSummary": null },
+    "dou": { "updateStatus": "no-updates", "summaryEventIds": [], "lastValidSummary": null },
+    "camara": { "updateStatus": "no-updates", "summaryEventIds": [], "lastValidSummary": null }
+  },
+  "eventIds": []
+}

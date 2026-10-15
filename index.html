@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#004A8C" />
+    <meta name="description" content="Panorama regulatório e legislativo do varejo farmacêutico." />
+    <title>Relatório Vivo | Varejo Farmacêutico</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="site-header">
+      <div class="shell site-header__inner">
+        <a class="brand" href="#inicio" aria-label="Relatório Vivo, início">
+          <img src="/assets/images/fecomercio-2025.webp" alt="Fecomércio" width="250" height="94" />
+          <span><strong>Relatório Vivo</strong><small>Varejo farmacêutico</small></span>
+        </a>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero" id="inicio" aria-labelledby="page-title">
+        <video
+          class="hero__video"
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="/assets/images/hero-poster.svg"
+          aria-hidden="true"
+        >
+          <source src="/assets/video/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__shade" aria-hidden="true"></div>
+        <div class="shell hero__content">
+          <p class="eyebrow">Relatório Vivo <span>/</span> Varejo Farmacêutico</p>
+          <h1 id="page-title">Panorama regulatório e legislativo do varejo farmacêutico</h1>
+          <p class="hero__lead">
+            Análise dos acontecimentos oficiais, seus possíveis efeitos sobre o setor e os temas que merecem
+            acompanhamento institucional.
+          </p>
+          <div class="hero__reference">
+            <p class="reference-date">
+              Janela de referência <time id="window-start"></time> — <time id="reference-date"></time>
+            </p>
+            <p class="demo-note">Demonstração com dados de referência</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="overview section-shell" id="leitura-executiva" aria-labelledby="overview-title">
+        <div class="overview-topline">
+          <div class="section-heading">
+            <p class="eyebrow">Leitura executiva</p>
+            <h2 id="overview-title" tabindex="-1">O que merece atenção</h2>
+          </div>
+          <p class="load-message" id="load-message" role="status">Carregando o relatório…</p>
+          <noscript><p class="load-message">Este relatório requer JavaScript e acesso por HTTP.</p></noscript>
+        </div>
+
+        <div id="indicators" class="indicator-list" aria-label="Indicadores do conjunto de referência"></div>
+
+        <section class="overview-highlights" aria-labelledby="highlights-title">
+          <div class="section-heading section-heading--compact">
+            <p class="eyebrow">Seleção editorial · 30 dias</p>
+            <h3 id="highlights-title">Destaques prioritários</h3>
+          </div>
+          <div id="highlights" class="highlight-list"></div>
+        </section>
+
+        <section class="source-overview" aria-labelledby="source-overview-title">
+          <div class="section-heading section-heading--compact">
+            <p class="eyebrow">Cobertura da amostra</p>
+            <h3 id="source-overview-title">Panorama das fontes</h3>
+          </div>
+          <div
+            id="source-overview-list"
+            class="source-picker"
+            role="group"
+            aria-label="Selecionar fonte para consultar os acontecimentos"
+          ></div>
+        </section>
+
+        <section class="synthesis" aria-labelledby="synthesis-title">
+          <div class="synthesis__heading">
+            <p class="eyebrow">Contexto transversal</p>
+            <h3 id="synthesis-title">Leitura entre fontes</h3>
+          </div>
+          <div id="synthesis" class="synthesis__content"></div>
+        </section>
+
+        <details class="method-note">
+          <summary>Escopo e limites desta demonstração</summary>
+          <div id="sample-limits"></div>
+        </details>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <img src="/assets/images/fecomercio-2025.webp" alt="" width="250" height="94" />
+        <p>Fecomércio · Inteligência para o varejo farmacêutico</p>
+      </div>
+    </footer>
+
+    <dialog class="source-dialog" id="source-dialog" aria-labelledby="source-dialog-label" aria-modal="true">
+      <header class="source-dialog__header">
+        <h2 class="visually-hidden" id="source-dialog-label">Detalhes da fonte</h2>
+        <p class="eyebrow">Panorama das fontes</p>
+        <button class="icon-button" type="button" data-close-source aria-label="Fechar painel da fonte">
+          Fechar <span aria-hidden="true">×</span>
+        </button>
+      </header>
+      <section
+        id="source-detail"
+        class="source-detail"
+        aria-label="Acontecimentos da fonte selecionada"
+        aria-live="polite"
+      ></section>
+    </dialog>
+
+    <dialog class="event-dialog" id="event-dialog" aria-labelledby="dialog-title">
+      <div class="event-dialog__header">
+        <p class="eyebrow" id="dialog-kicker">Análise do acontecimento</p>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Fechar análise">
+          Fechar <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="event-dialog__body" id="dialog-content"></div>
+    </dialog>
+    <div id="live-status" class="visually-hidden" aria-live="polite"></div>
+  </body>
+</html>

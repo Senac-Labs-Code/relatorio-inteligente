@@ -1,0 +1,559 @@
+[
+  {
+    "id": "sncr-transition-2026",
+    "sourceId": "anvisa",
+    "subjectId": "sncr-electronic-prescriptions",
+    "officialIdentifier": "Sistema Nacional de Controle de Receituários (SNCR) — transição das receitas brancas",
+    "type": "orientacao-regulatoria",
+    "title": "Anvisa define integração ao SNCR para receitas brancas eletrônicas a partir de 30 de outubro",
+    "factualSummary": "A Anvisa informou que a etapa eletrônica do SNCR começou em 30/09/2026. Para Receitas de Controle Especial e Receitas Sujeitas à Retenção emitidas eletronicamente, o período de transição permite emissão sem integração ao sistema até 29/10; a partir de 30/10, essas receitas eletrônicas devem estar integradas ao SNCR. Receitas em papel continuam como opção, conforme as regras aplicáveis. A Agência também orientou responsáveis legais a organizar os acessos e atribuir os perfis SNCR e SNCR-Farmácia.",
+    "publicationDate": "2026-09-21",
+    "lastMovementDate": "2026-09-29",
+    "issuer": "Agência Nacional de Vigilância Sanitária (Anvisa)",
+    "officialUrls": [
+      "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/inicio-de-nova-etapa-do-sncr-o-que-muda-a-partir-de-30-de-setembro",
+      "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/como-farmacias-publicas-e-privadas-devem-se-preparar-para-o-sncr"
+    ],
+    "status": "Transição de receitas brancas eletrônicas: integração ao SNCR a partir de 30/10/2026; papel permanece permitido",
+    "isActive": true,
+    "followUpReason": "O marco de 30/10/2026 para receitas brancas eletrônicas ainda é futuro na data de referência do recorte.",
+    "classifications": {
+      "relevance": {
+        "value": "alta",
+        "justification": "O tema afeta o fluxo de consulta e utilização de receitas eletrônicas controladas em farmácias e drogarias.",
+        "evidenceIds": ["ev-sncr-transition", "ev-sncr-preparation"]
+      },
+      "impact": {
+        "value": "medio",
+        "justification": "A exigência se aplica às receitas brancas emitidas eletronicamente; a fonte mantém a via em papel e não exige emissão digital de todos os prescritores.",
+        "evidenceIds": ["ev-sncr-transition"]
+      },
+      "urgency": {
+        "value": "alta",
+        "justification": "A data de integração obrigatória para receitas brancas emitidas eletronicamente é 30/10/2026.",
+        "evidenceIds": ["ev-sncr-transition"]
+      }
+    },
+    "claims": [
+      {
+        "id": "sncr-fact-phase",
+        "type": "fact",
+        "text": "A nova etapa do SNCR começou em 30/09/2026; a emissão eletrônica é gradual e as receitas em papel continuam válidas conforme as regras aplicáveis."
+      },
+      {
+        "id": "sncr-fact-transition",
+        "type": "fact",
+        "text": "Até 29/10/2026, receitas brancas eletrônicas podem coexistir sem integração ao SNCR; a partir de 30/10, quando emitidas eletronicamente, devem estar integradas ao sistema."
+      },
+      {
+        "id": "sncr-hypothesis",
+        "type": "hypothesis",
+        "text": "Farmácias podem precisar conferir o acesso de seus colaboradores e alinhar os fluxos de consulta e registro com os sistemas de prescrição eletrônica."
+      }
+    ],
+    "changes": [
+      {
+        "claimId": "sncr-fact-transition",
+        "text": "A transição para receitas brancas emitidas eletronicamente termina em 29/10/2026; a integração ao SNCR passa a ser necessária nessa via em 30/10/2026. A emissão em papel permanece possível."
+      }
+    ],
+    "possibleImpacts": [
+      {
+        "claimId": "sncr-hypothesis",
+        "text": "A partir de 30/10, farmácias que recebam receitas brancas emitidas eletronicamente poderão precisar confirmar compatibilidade de consulta e registro no SNCR. A hipótese não implica obrigação de substituir receitas em papel."
+      }
+    ],
+    "affectedGroups": [
+      "Farmácias e drogarias que recebem receitas brancas emitidas eletronicamente",
+      "Responsáveis legais e colaboradores com perfis SNCR e SNCR-Farmácia",
+      "Serviços de prescrição eletrônica"
+    ],
+    "deadlines": [
+      {
+        "id": "sncr-rce-integration-2026-10-30",
+        "date": "2026-10-30",
+        "description": "A partir desta data, as receitas brancas emitidas eletronicamente devem estar integradas ao SNCR; a emissão em papel continua possível, conforme as regras aplicáveis.",
+        "evidenceIds": ["ev-sncr-transition"]
+      }
+    ],
+    "recommendation": {
+      "type": "Acompanhar",
+      "text": "Acompanhar a orientação oficial e, para estabelecimentos que adotem receitas eletrônicas, avaliar os acessos e a integração aplicáveis.",
+      "evidenceClaimIds": ["sncr-fact-transition", "sncr-hypothesis"]
+    },
+    "evidence": [
+      {
+        "id": "ev-sncr-transition",
+        "claimId": "sncr-fact-transition",
+        "documentId": "ANVISA-SNCR-2026-09-21",
+        "documentTitle": "Início de nova etapa do SNCR: o que muda a partir de 30 de setembro",
+        "officialUrl": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/inicio-de-nova-etapa-do-sncr-o-que-muda-a-partir-de-30-de-setembro",
+        "documentDate": "2026-09-21",
+        "fragmentReference": "Seções “Como será a transição das receitas brancas?” e “E as receitas em papel?”",
+        "textOrFaithfulParaphrase": "Até 29/10, receitas brancas eletrônicas podem estar fora do SNCR; a partir de 30/10, quando emitidas eletronicamente, devem estar integradas. As receitas em papel continuam como opção.",
+        "supportsClaim": true,
+        "notes": "Orientação oficial consultada em 15/10/2026; a regra se refere à via eletrônica."
+      },
+      {
+        "id": "ev-sncr-phase",
+        "claimId": "sncr-fact-phase",
+        "documentId": "ANVISA-SNCR-2026-09-21",
+        "documentTitle": "Início de nova etapa do SNCR: o que muda a partir de 30 de setembro",
+        "officialUrl": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/inicio-de-nova-etapa-do-sncr-o-que-muda-a-partir-de-30-de-setembro",
+        "documentDate": "2026-09-21",
+        "fragmentReference": "Seções “O que acontece em 30 de setembro?” e “E as receitas em papel?”",
+        "textOrFaithfulParaphrase": "A nova etapa começa em 30/09; a Anvisa afirma que não há obrigatoriedade geral de emissão eletrônica no primeiro dia e mantém o uso de receitas em papel.",
+        "supportsClaim": true,
+        "notes": "Síntese fiel da orientação institucional."
+      },
+      {
+        "id": "ev-sncr-preparation",
+        "claimId": "sncr-fact-transition",
+        "documentId": "ANVISA-SNCR-2026-09-25",
+        "documentTitle": "Como farmácias públicas e privadas devem se preparar para o SNCR?",
+        "officialUrl": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/como-farmacias-publicas-e-privadas-devem-se-preparar-para-o-sncr",
+        "documentDate": "2026-09-25",
+        "fragmentReference": "Publicado em 25/09/2026; modificado em 29/09/2026; orientações sobre Cadastro Anvisa e perfis SNCR",
+        "textOrFaithfulParaphrase": "A Anvisa orienta o responsável legal a conferir o cadastro do estabelecimento, colaboradores e atribuição dos perfis SNCR e SNCR-Farmácia.",
+        "supportsClaim": true,
+        "notes": "A publicação foi modificada em 29/09/2026."
+      },
+      {
+        "id": "ev-sncr-operational",
+        "claimId": "sncr-hypothesis",
+        "documentId": "ANVISA-SNCR-2026-09-25",
+        "documentTitle": "Como farmácias públicas e privadas devem se preparar para o SNCR?",
+        "officialUrl": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/como-farmacias-publicas-e-privadas-devem-se-preparar-para-o-sncr",
+        "documentDate": "2026-09-25",
+        "fragmentReference": "Orientações para responsáveis legais e perfis de acesso",
+        "textOrFaithfulParaphrase": "A fonte descreve organização de acessos e perfis; avaliar compatibilidade operacional é interpretação exemplificativa condicionada à adoção de receituários eletrônicos.",
+        "supportsClaim": true,
+        "notes": "A hipótese não é comando nem obrigação oficial dirigida indistintamente às farmácias."
+      }
+    ],
+    "publicable": true,
+    "processingSteps": [
+      "Identificação e consolidação das orientações oficiais do SNCR sobre a mesma transição",
+      "Separação entre cronograma da via eletrônica e permanência do papel",
+      "Vinculação de fatos e interpretação às evidências correspondentes",
+      "Aplicação demonstrativa dos critérios editoriais de publicação"
+    ]
+  },
+  {
+    "id": "anvisa-medication-error-campaign-2026",
+    "sourceId": "anvisa",
+    "subjectId": "medication-error-prevention-2026",
+    "officialIdentifier": "Campanha Anvisa sobre Erros de Medicação — outubro de 2026",
+    "type": "campanha-institucional",
+    "title": "Anvisa promove prevenção e notificação de erros de medicação durante outubro",
+    "factualSummary": "A Anvisa publicou em 02/10/2026 o lançamento de uma campanha de prevenção e notificação de erros de medicação, prevista para ocorrer ao longo de outubro. A iniciativa envolve profissionais de saúde, pacientes, cuidadores e instituições; a notícia descreve uma campanha institucional, não uma nova RDC nem uma obrigação automática para farmácias.",
+    "publicationDate": "2026-10-02",
+    "lastMovementDate": null,
+    "issuer": "Agência Nacional de Vigilância Sanitária (Anvisa)",
+    "officialUrls": [
+      "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/anvisa-lanca-campanha-para-estimular-a-prevencao-e-a-notificacao-de-erros-de-medicacao"
+    ],
+    "status": "Campanha institucional divulgada para outubro de 2026",
+    "isActive": false,
+    "followUpReason": null,
+    "classifications": {
+      "relevance": {
+        "value": "media",
+        "justification": "A campanha trata de farmacovigilância e segurança no uso de medicamentos, tema pertinente às equipes e serviços farmacêuticos.",
+        "evidenceIds": ["ev-campaign-fact"]
+      },
+      "impact": {
+        "value": "baixo",
+        "justification": "A notícia divulga ação de conscientização e não estabelece por si só nova obrigação operacional para farmácias.",
+        "evidenceIds": ["ev-campaign-fact"]
+      },
+      "urgency": {
+        "value": "baixa",
+        "justification": "A campanha está prevista para outubro, sem prazo regulatório ou obrigação operacional descritos para estabelecimentos.",
+        "evidenceIds": ["ev-campaign-fact"]
+      }
+    },
+    "claims": [
+      {
+        "id": "campaign-fact",
+        "type": "fact",
+        "text": "A Anvisa divulgou campanha sobre prevenção e notificação de erros de medicação ao longo de outubro de 2026."
+      },
+      {
+        "id": "campaign-hypothesis",
+        "type": "hypothesis",
+        "text": "A pauta pode ser pertinente à comunicação e às práticas de segurança de equipes farmacêuticas, conforme o contexto de cada instituição."
+      }
+    ],
+    "changes": [],
+    "possibleImpacts": [
+      {
+        "claimId": "campaign-hypothesis",
+        "text": "A campanha pode servir de referência para comunicação institucional sobre segurança do paciente e farmacovigilância; isso é possibilidade editorial e não obrigação criada pela notícia."
+      }
+    ],
+    "affectedGroups": [
+      "Farmacêuticos e outros profissionais de saúde",
+      "Pacientes e cuidadores",
+      "Instituições e organizações de defesa dos pacientes"
+    ],
+    "deadlines": [],
+    "recommendation": null,
+    "evidence": [
+      {
+        "id": "ev-campaign-fact",
+        "claimId": "campaign-fact",
+        "documentId": "ANVISA-CAMPANHA-ERROS-MEDICACAO-2026-10-02",
+        "documentTitle": "Anvisa lança campanha para estimular a prevenção e a notificação de erros de medicação",
+        "officialUrl": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/anvisa-lanca-campanha-para-estimular-a-prevencao-e-a-notificacao-de-erros-de-medicacao",
+        "documentDate": "2026-10-02",
+        "fragmentReference": "Título, linha fina e parágrafos iniciais sobre duração, objetivos e públicos",
+        "textOrFaithfulParaphrase": "A campanha será divulgada durante outubro para mobilizar profissionais, pacientes, cuidadores e instituições na prevenção e notificação de erros de medicação.",
+        "supportsClaim": true,
+        "notes": "Notícia institucional; não é ato normativo."
+      },
+      {
+        "id": "ev-campaign-interpretation",
+        "claimId": "campaign-hypothesis",
+        "documentId": "ANVISA-CAMPANHA-ERROS-MEDICACAO-2026-10-02",
+        "documentTitle": "Anvisa lança campanha para estimular a prevenção e a notificação de erros de medicação",
+        "officialUrl": "https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/anvisa-lanca-campanha-para-estimular-a-prevencao-e-a-notificacao-de-erros-de-medicacao",
+        "documentDate": "2026-10-02",
+        "fragmentReference": "Públicos e objetivos da campanha",
+        "textOrFaithfulParaphrase": "A pertinência para comunicação institucional é uma interpretação editorial baseada no tema e público descritos; a campanha não impõe obrigação automática às farmácias.",
+        "supportsClaim": true,
+        "notes": "Interpretação exemplificativa, não afirmação da Anvisa."
+      }
+    ],
+    "publicable": true,
+    "processingSteps": [
+      "Identificação da notícia institucional e de seus públicos",
+      "Separação entre campanha divulgada e obrigação normativa",
+      "Classificação editorial demonstrativa com referência ao documento oficial"
+    ]
+  },
+  {
+    "id": "cmed-price-adjustment-2026",
+    "sourceId": "dou",
+    "subjectId": "cmed-price-adjustment-2026",
+    "officialIdentifier": "Resolução CM-CMED nº 4, de 30 de março de 2026",
+    "type": "resolucao",
+    "title": "Resolução da CMED disciplina o ajuste máximo de preços de medicamentos em 2026",
+    "factualSummary": "A Resolução CM-CMED nº 4, de 30/03/2026, publicada no DOU de 31/03/2026 (edição 61, seção 1, p. 33), estabeleceu os índices máximos de ajuste de preços de medicamentos em 2026: nível 1, 3,81%; nível 2, 2,47%; nível 3, 1,13%. O ato também disciplina o Relatório de Comercialização devido pelos sujeitos definidos na resolução e a publicidade dos preços. A obrigação de relatório não é atribuída indistintamente às farmácias varejistas.",
+    "publicationDate": "2026-03-31",
+    "lastMovementDate": null,
+    "issuer": "Conselho de Ministros da Câmara de Regulação do Mercado de Medicamentos (CMED)",
+    "officialIdentifierUrl": "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/cmed/legislacao/RESOLUOCMCMEDN.4DE30DEMARODE2026DOU.pdf",
+    "officialUrls": [
+      "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/cmed/legislacao/RESOLUOCMCMEDN.4DE30DEMARODE2026DOU.pdf",
+      "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/cmed/legislacao/resolucoes"
+    ],
+    "status": "Vigente segundo a lista de resoluções da CMED consultada em 15/10/2026",
+    "isActive": true,
+    "followUpReason": "O ato consta como vigente na lista institucional da CMED; permanece como referência normativa, embora esteja fora da janela de 30 dias.",
+    "classifications": {
+      "relevance": {
+        "value": "media",
+        "justification": "O ato regula preços máximos, relatório de comercialização e publicidade de preços no mercado de medicamentos.",
+        "evidenceIds": ["ev-cmed-act"]
+      },
+      "impact": {
+        "value": "medio",
+        "justification": "O ato pode ser referência para rotinas de consulta de preços, mas o resumo não atribui obrigações específicas a cada farmácia além do texto oficial.",
+        "evidenceIds": ["ev-cmed-act"]
+      },
+      "urgency": {
+        "value": "baixa",
+        "justification": "A resolução entrou em vigor em março e não foi identificada movimentação recente nesta amostra.",
+        "evidenceIds": ["ev-cmed-status"]
+      }
+    },
+    "claims": [
+      {
+        "id": "cmed-fact-scope",
+        "type": "fact",
+        "text": "A Resolução CM-CMED nº 4/2026 definiu índices máximos de ajuste de preços em 2026 (3,81%, 2,47% e 1,13% para os níveis 1, 2 e 3) e tratou do Relatório de Comercialização pelos sujeitos definidos no ato."
+      },
+      {
+        "id": "cmed-hypothesis",
+        "type": "hypothesis",
+        "text": "O ato pode servir como referência histórica para acompanhar parâmetros de preço no mercado farmacêutico; a utilidade setorial é interpretação editorial."
+      }
+    ],
+    "changes": [],
+    "possibleImpacts": [
+      {
+        "claimId": "cmed-hypothesis",
+        "text": "Os índices podem apoiar leitura de referências de preço do mercado. A obrigação de relatório depende dos sujeitos expressamente definidos na resolução e não é generalizada às farmácias varejistas."
+      }
+    ],
+    "affectedGroups": [
+      "Sujeitos definidos na Resolução CM-CMED nº 4/2026",
+      "Agentes que consultam os preços máximos de medicamentos"
+    ],
+    "deadlines": [],
+    "recommendation": {
+      "type": "Acompanhar",
+      "text": "Manter o ato como referência histórica vigente e consultar o texto integral quando necessário.",
+      "evidenceClaimIds": ["cmed-fact-scope"]
+    },
+    "evidence": [
+      {
+        "id": "ev-cmed-act",
+        "claimId": "cmed-fact-scope",
+        "documentId": "DOU-RES-CM-CMED-4-2026",
+        "documentTitle": "Resolução CM-CMED nº 4, de 30 de março de 2026",
+        "officialUrl": "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/cmed/legislacao/RESOLUOCMCMEDN.4DE30DEMARODE2026DOU.pdf",
+        "documentDate": "2026-03-31",
+        "fragmentReference": "Edição 61, Seção 1, página 33; ementa e arts. 1º a 3º",
+        "textOrFaithfulParaphrase": "A resolução fixa índices máximos de ajuste de 3,81%, 2,47% e 1,13% nos níveis 1, 2 e 3, respectivamente, e disciplina relatório de comercialização e publicidade de preços.",
+        "supportsClaim": true,
+        "notes": "Documento publicado no Diário Oficial da União."
+      },
+      {
+        "id": "ev-cmed-status",
+        "claimId": "cmed-fact-scope",
+        "documentId": "CMED-RESOLUTIONS-2026",
+        "documentTitle": "Resoluções do Conselho de Ministros da CMED",
+        "officialUrl": "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/cmed/legislacao/resolucoes",
+        "documentDate": "2026-10-15",
+        "fragmentReference": "Lista de Resoluções 2026",
+        "textOrFaithfulParaphrase": "A lista institucional indica a Resolução CM-CMED nº 4/2026 como vigente.",
+        "supportsClaim": true,
+        "notes": "Consulta realizada em 15/10/2026."
+      },
+      {
+        "id": "ev-cmed-price-reference",
+        "claimId": "cmed-hypothesis",
+        "documentId": "DOU-RES-CM-CMED-4-2026",
+        "documentTitle": "Resolução CM-CMED nº 4, de 30 de março de 2026",
+        "officialUrl": "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/cmed/legislacao/RESOLUOCMCMEDN.4DE30DEMARODE2026DOU.pdf",
+        "documentDate": "2026-03-31",
+        "fragmentReference": "Ementa e arts. 1º a 3º",
+        "textOrFaithfulParaphrase": "Os índices oficiais são uma referência para leitura do mercado; qualquer consequência para farmácias depende de regras aplicáveis ao caso, não de obrigação geral inferida do ato.",
+        "supportsClaim": true,
+        "notes": "A aplicação em casos concretos depende da regra e do produto."
+      }
+    ],
+    "publicable": true,
+    "processingSteps": [
+      "Identificação do ato no DOU",
+      "Conferência da ementa e da situação na lista institucional",
+      "Separação entre escopo do ato e possíveis usos como referência"
+    ]
+  },
+  {
+    "id": "pl-2664-2025",
+    "sourceId": "camara",
+    "subjectId": "pl-2664-2025",
+    "officialIdentifier": "Projeto de Lei nº 2.664/2025",
+    "type": "projeto-de-lei",
+    "title": "Projeto propõe aferição gratuita de pressão arterial e glicemia em farmácias",
+    "factualSummary": "O PL 2.664/2025 propõe alterar a Lei nº 13.021/2014 para obrigar farmácias a aferir gratuitamente a pressão arterial e a glicemia capilar de clientes. A ficha da Câmara consultada indica que o projeto aguarda parecer do relator na Comissão de Saúde. Trata-se de proposta legislativa, não de obrigação vigente.",
+    "publicationDate": "2025-05-30",
+    "lastMovementDate": "2025-08-27",
+    "issuer": "Câmara dos Deputados",
+    "officialIdentifierUrl": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2519718",
+    "officialUrls": ["https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2519718"],
+    "status": "Aguardando parecer do relator na Comissão de Saúde, conforme ficha consultada em 15/10/2026",
+    "isActive": true,
+    "followUpReason": "A matéria permanece em tramitação e propõe serviço diretamente relacionado à operação de farmácias; a ficha consultada não registra movimentação nos últimos 30 dias.",
+    "classifications": {
+      "relevance": {
+        "value": "media",
+        "justification": "A proposição trata de serviço que poderia ser prestado por farmácias se aprovada.",
+        "evidenceIds": ["ev-pl2664-text"]
+      },
+      "impact": {
+        "value": "medio",
+        "justification": "Uma eventual aprovação poderia afetar processos e custos operacionais; isso depende do texto aprovado e da tramitação.",
+        "evidenceIds": ["ev-pl2664-text"]
+      },
+      "urgency": {
+        "value": "baixa",
+        "justification": "A ficha consultada indica análise pendente e não há movimentação recente nesta amostra.",
+        "evidenceIds": ["ev-pl2664-status"]
+      }
+    },
+    "claims": [
+      {
+        "id": "pl2664-fact",
+        "type": "fact",
+        "text": "O PL 2.664/2025 propõe aferição gratuita de pressão arterial e glicemia capilar por farmácias e aguarda parecer na Comissão de Saúde."
+      },
+      {
+        "id": "pl2664-hypothesis",
+        "type": "hypothesis",
+        "text": "Se aprovado nesse sentido, o projeto pode demandar avaliação de estrutura e custos de prestação do serviço pelas farmácias."
+      }
+    ],
+    "changes": [],
+    "possibleImpacts": [
+      {
+        "claimId": "pl2664-hypothesis",
+        "text": "Uma aprovação poderia afetar a organização da oferta de serviços; não é obrigação atual e o alcance depende da tramitação e do texto final."
+      }
+    ],
+    "affectedGroups": ["Farmácias e drogarias", "Clientes dos estabelecimentos"],
+    "deadlines": [],
+    "recommendation": {
+      "type": "Avaliar",
+      "text": "Avaliar o tema legislativo sem tratar a proposta como dever vigente.",
+      "evidenceClaimIds": ["pl2664-fact", "pl2664-hypothesis"]
+    },
+    "evidence": [
+      {
+        "id": "ev-pl2664-text",
+        "claimId": "pl2664-fact",
+        "documentId": "CD-PL-2664-2025",
+        "documentTitle": "Ficha de tramitação do PL 2.664/2025",
+        "officialUrl": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2519718",
+        "documentDate": "2025-05-30",
+        "fragmentReference": "Ementa da proposição",
+        "textOrFaithfulParaphrase": "O projeto propõe alteração da Lei 13.021/2014 para aferição gratuita de pressão arterial e glicemia capilar.",
+        "supportsClaim": true,
+        "notes": "Projeto de lei; a ementa não produz obrigação vigente."
+      },
+      {
+        "id": "ev-pl2664-status",
+        "claimId": "pl2664-fact",
+        "documentId": "CD-PL-2664-2025",
+        "documentTitle": "Ficha de tramitação do PL 2.664/2025",
+        "officialUrl": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2519718",
+        "documentDate": "2025-08-27",
+        "fragmentReference": "Situação e andamento na Comissão de Saúde",
+        "textOrFaithfulParaphrase": "A ficha registra que a matéria aguarda parecer do relator na Comissão de Saúde.",
+        "supportsClaim": true,
+        "notes": "Situação conferida na página oficial em 15/10/2026."
+      },
+      {
+        "id": "ev-pl2664-interpretation",
+        "claimId": "pl2664-hypothesis",
+        "documentId": "CD-PL-2664-2025",
+        "documentTitle": "Inteiro teor do PL 2.664/2025",
+        "officialUrl": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=2942743&filename=PL+2664/2025",
+        "documentDate": "2025-05-30",
+        "fragmentReference": "Artigo proposto para alterar a Lei nº 13.021/2014",
+        "textOrFaithfulParaphrase": "A proposta prevê aferições gratuitas de pressão e glicemia por farmácias; a eventual avaliação de estrutura e custos é interpretação condicionada à aprovação.",
+        "supportsClaim": true,
+        "notes": "Hipótese analítica, não previsão de obrigação vigente."
+      }
+    ],
+    "publicable": true,
+    "processingSteps": [
+      "Identificação do projeto e leitura da ementa",
+      "Conferência da situação de tramitação",
+      "Tratamento como proposta, sem equiparação a obrigação vigente"
+    ]
+  },
+  {
+    "id": "pl-3307-2025",
+    "sourceId": "camara",
+    "subjectId": "pl-3307-2025",
+    "officialIdentifier": "Projeto de Lei nº 3.307/2025",
+    "type": "projeto-de-lei",
+    "title": "Projeto apensado discute quais produtos podem ser comercializados em farmácias",
+    "factualSummary": "O PL 3.307/2025 propõe limitar a comercialização em farmácias e drogarias a produtos vinculados à saúde, higiene e diagnóstico médico ou terapêutico. A ficha da Câmara informa que a proposição está apensada ao PL 1.788/2025. A proposta não é norma vigente; seu andamento conjunto deve ser acompanhado na ficha do projeto principal.",
+    "publicationDate": "2025-07-09",
+    "lastMovementDate": "2025-09-04",
+    "issuer": "Câmara dos Deputados",
+    "officialIdentifierUrl": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2533705",
+    "officialUrls": [
+      "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2533705",
+      "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2498930"
+    ],
+    "status": "Apensado ao PL 1.788/2025, conforme ficha consultada em 15/10/2026",
+    "isActive": true,
+    "followUpReason": "A proposta está vinculada a projeto principal em tramitação e trata do escopo comercial de farmácias; a amostra não encontrou movimentação nos últimos 30 dias.",
+    "classifications": {
+      "relevance": {
+        "value": "media",
+        "justification": "A proposição tem relação direta com o sortimento comercial de farmácias e drogarias.",
+        "evidenceIds": ["ev-pl3307-text", "ev-pl3307-status"]
+      },
+      "impact": {
+        "value": "medio",
+        "justification": "Se aprovada, poderia alterar critérios de comercialização; o resultado depende do texto final e da tramitação conjunta.",
+        "evidenceIds": ["ev-pl3307-text"]
+      },
+      "urgency": {
+        "value": "baixa",
+        "justification": "A ficha consultada registra apensação em 2025 e não apresenta movimentação recente nesta amostra.",
+        "evidenceIds": ["ev-pl3307-status"]
+      }
+    },
+    "claims": [
+      {
+        "id": "pl3307-fact",
+        "type": "fact",
+        "text": "O PL 3.307/2025 propõe limitar produtos comercializados por farmácias e drogarias e está apensado ao PL 1.788/2025."
+      },
+      {
+        "id": "pl3307-hypothesis",
+        "type": "hypothesis",
+        "text": "Se aprovado em termos semelhantes, o projeto poderia afetar critérios de sortimento das farmácias."
+      }
+    ],
+    "changes": [],
+    "possibleImpacts": [
+      {
+        "claimId": "pl3307-hypothesis",
+        "text": "Uma aprovação poderia alterar critérios de sortimento; não há obrigação vigente decorrente deste projeto."
+      }
+    ],
+    "affectedGroups": [
+      "Farmácias e drogarias",
+      "Fornecedores de produtos comercializados nesses estabelecimentos"
+    ],
+    "deadlines": [],
+    "recommendation": {
+      "type": "Acompanhar",
+      "text": "Acompanhar a tramitação conjunta pelo projeto principal e revisar o texto se houver novo parecer.",
+      "evidenceClaimIds": ["pl3307-fact"]
+    },
+    "evidence": [
+      {
+        "id": "ev-pl3307-text",
+        "claimId": "pl3307-fact",
+        "documentId": "CD-PL-3307-2025",
+        "documentTitle": "Ficha de tramitação do PL 3.307/2025",
+        "officialUrl": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2533705",
+        "documentDate": "2025-07-09",
+        "fragmentReference": "Ementa da proposição",
+        "textOrFaithfulParaphrase": "O projeto propõe limitar a comercialização em farmácias a produtos vinculados à saúde, higiene e diagnóstico.",
+        "supportsClaim": true,
+        "notes": "Projeto de lei, não norma em vigor."
+      },
+      {
+        "id": "ev-pl3307-status",
+        "claimId": "pl3307-fact",
+        "documentId": "CD-PL-3307-2025",
+        "documentTitle": "Ficha de tramitação do PL 3.307/2025",
+        "officialUrl": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2533705",
+        "documentDate": "2025-09-04",
+        "fragmentReference": "Situação da proposição e andamento em 04/09/2025",
+        "textOrFaithfulParaphrase": "A Câmara informa que o PL 3.307/2025 foi apensado ao PL 1.788/2025.",
+        "supportsClaim": true,
+        "notes": "Consulta à ficha oficial em 15/10/2026; acompanhar a ficha do projeto principal para novos andamentos."
+      },
+      {
+        "id": "ev-pl3307-interpretation",
+        "claimId": "pl3307-hypothesis",
+        "documentId": "CD-PL-3307-2025",
+        "documentTitle": "Inteiro teor do PL 3.307/2025",
+        "officialUrl": "https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=2991158&filename=Avulso+PL+3307%2F2025",
+        "documentDate": "2025-07-09",
+        "fragmentReference": "Art. 1º e dispositivos propostos sobre comercialização em farmácias",
+        "textOrFaithfulParaphrase": "A proposta restringe categorias de produtos comercializáveis; eventual efeito sobre sortimento depende de aprovação e redação final.",
+        "supportsClaim": true,
+        "notes": "Hipótese analítica condicionada à tramitação."
+      }
+    ],
+    "publicable": true,
+    "processingSteps": [
+      "Identificação do projeto e leitura da ementa",
+      "Verificação do vínculo com o PL 1.788/2025",
+      "Separação entre proposta legislativa e regra vigente"
+    ]
+  }
+]
