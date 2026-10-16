@@ -110,19 +110,6 @@ export function getSourceDisplayStatus(source) {
   return { ...(statuses[source.updateStatus] ?? statuses.unavailable), eventIds };
 }
 
-export function getSynthesisSupport(eventIds, events) {
-  const byId = new Map(events.map((event) => [event.id, event]));
-  const support = [];
-  for (const id of eventIds) {
-    const event = byId.get(id);
-    if (!event) throw new Error(`A síntese referencia o acontecimento inexistente ${id}.`);
-    if (!isEligibleForPublicAnalysis(event))
-      throw new Error(`A síntese referencia o acontecimento não publicável ${id}.`);
-    support.push(event);
-  }
-  return support;
-}
-
 export function createReportModel({ sources, events, editorial }) {
   const sourceStates = new Map(sources.map((source) => [source.id, getSourceDisplayStatus(source)]));
   const availableEvents = events.filter((event) => {
@@ -136,11 +123,26 @@ export function createReportModel({ sources, events, editorial }) {
   const publicEvents = availableEvents.filter(isEligibleForPublicAnalysis);
   const recent = getRecentEvents(publicEvents, editorial.referenceDate, editorial.windowDays);
   const followed = getFollowedSubjects(publicEvents, editorial.referenceDate, editorial.windowDays);
-  const synthesisIds = editorial.crossSourceSynthesis.eventIds;
-  const synthesisHasCompleteSupport = synthesisIds.every((id) =>
-    publicEvents.some((event) => event.id === id),
-  );
-  const synthesisEvents = synthesisHasCompleteSupport ? getSynthesisSupport(synthesisIds, publicEvents) : [];
+  const recommendations = publicEvents.flatMap((event) => {
+    const recommendation = event.recommendation;
+    if (
+      !recommendation?.type ||
+      !recommendation.text ||
+      !Array.isArray(recommendation.evidenceClaimIds) ||
+      recommendation.evidenceClaimIds.length === 0 ||
+      !recommendation.evidenceClaimIds.every((claimId) => hasEvidenceForClaim(event, claimId))
+    )
+      return [];
+    return [{ event, recommendation }];
+  }).sort((first, second) => {
+    const priority = (value) => ({ alta: 3, alto: 3, media: 2, medio: 2, baixa: 1, baixo: 1 })[value] ?? 0;
+    return (
+      priority(second.event.classifications.urgency.value) - priority(first.event.classifications.urgency.value) ||
+      priority(second.event.classifications.relevance.value) - priority(first.event.classifications.relevance.value) ||
+      priority(second.event.classifications.impact.value) - priority(first.event.classifications.impact.value) ||
+      (second.event.publicationDate ?? '').localeCompare(first.event.publicationDate ?? '')
+    );
+  }).slice(0, 3);
   return {
     sources,
     events: publicEvents,
@@ -148,7 +150,7 @@ export function createReportModel({ sources, events, editorial }) {
     followed,
     highlights: getHighlights(publicEvents, editorial.referenceDate, editorial.windowDays),
     sourceStates,
-    synthesisEvents,
+    recommendations,
     editorial,
   };
 }

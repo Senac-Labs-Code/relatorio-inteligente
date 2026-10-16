@@ -12,6 +12,10 @@ test('cenário sem novidades não fabrica acontecimentos nem cartões', async ({
   await expect(anvisa.locator('.empty-state').first()).toContainText(
     'Nenhum acontecimento recente consta nesta amostra',
   );
+  await expect(page.locator('#synthesis .decision-card')).toHaveCount(0);
+  await expect(page.locator('#synthesis .empty-state')).toContainText(
+    'Não há recomendações com suporte suficiente',
+  );
 });
 
 test('falha parcial preserva resultado demonstrativo e não interrompe as outras fontes', async ({ page }) => {
@@ -21,7 +25,6 @@ test('falha parcial preserva resultado demonstrativo e não interrompe as outras
   await expect(anvisa.locator('.source-status--stale')).toContainText('último resultado válido preservado');
   await expect(anvisa).toContainText('SNCR');
   await expect(anvisa).toContainText('Falha de atualização demonstrativa');
-  await page.locator('[data-close-source]').click();
   await page.locator('#source-overview-list [data-source-target="dou"]').click();
   await expect(page.locator('#source-detail .source-status--unverified')).toHaveCount(0);
   await expect(page.locator('#source-detail')).not.toContainText('verificação nesta demonstração');
@@ -46,7 +49,7 @@ test('fato documentado permanece e hipótese sem evidência é omitida na aba me
   await expect(dialog.locator('#analysis-panel')).not.toContainText('Possíveis efeitos');
 });
 
-test('cards do panorama e painel lateral se adaptam sem overflow em desktop, tablet e mobile', async ({
+test('cards do panorama e detalhe inline se adaptam sem overflow em desktop, tablet e mobile', async ({
   page,
 }) => {
   await page.goto('/');
@@ -60,19 +63,21 @@ test('cards do panorama e painel lateral se adaptam sem overflow em desktop, tab
     }));
     expect(measurements.content, `overflow at ${width}px`).toBeLessThanOrEqual(measurements.viewport + 1);
     await page.locator('#source-overview-list [data-source-target="anvisa"]').click();
-    await page.waitForFunction(() => {
-      const bounds = document.querySelector('#source-dialog').getBoundingClientRect();
-      return Math.abs(bounds.right - window.innerWidth) < 1;
-    });
-    const panel = await page.locator('#source-dialog').evaluate((element) => {
+    await expect(page.locator('#source-detail h3')).toHaveText('ANVISA');
+    const detail = await page.locator('#source-detail').evaluate((element) => {
       const bounds = element.getBoundingClientRect();
-      return { x: bounds.x, right: bounds.right, width: bounds.width, viewport: window.innerWidth };
+      return {
+        x: bounds.x,
+        right: bounds.right,
+        width: bounds.width,
+        viewport: window.innerWidth,
+        documentWidth: document.documentElement.scrollWidth,
+      };
     });
-    expect(panel.x).toBeGreaterThanOrEqual(0);
-    expect(panel.right).toBeLessThanOrEqual(panel.viewport + 1);
-    expect(panel.width).toBeLessThanOrEqual(panel.viewport + 1);
-    if (width > 820) expect(panel.x).toBeGreaterThan(width * 0.25);
-    await page.locator('[data-close-source]').click();
+    expect(detail.x).toBeGreaterThanOrEqual(0);
+    expect(detail.right).toBeLessThanOrEqual(detail.viewport + 1);
+    expect(detail.width).toBeLessThanOrEqual(detail.viewport + 1);
+    expect(detail.documentWidth).toBeLessThanOrEqual(detail.viewport + 1);
   }
 });
 
@@ -80,9 +85,11 @@ test('cartões móveis alternam fonte e prefers-reduced-motion preserva leitura'
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
+  await expect(page.locator('.synthesis .network-packet')).toHaveCSS('display', 'none');
+  await expect(page.locator('#synthesis .decision-card').first()).toBeVisible();
   await page.locator('#source-overview-list [data-source-target="camara"]').click();
-  await expect(page.locator('#source-dialog')).toBeVisible();
   await expect(page.locator('#source-detail h3')).toHaveText('Câmara dos Deputados');
+  await expect(page.locator('#source-detail')).toBeVisible();
   await expect(page).not.toHaveURL(/#source-/);
   await expect.poll(() => page.locator('.hero__video').evaluate((video) => video.paused)).toBe(true);
   const skip = page.getByRole('link', { name: 'Pular para o conteúdo' });

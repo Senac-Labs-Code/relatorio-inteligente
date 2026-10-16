@@ -83,12 +83,15 @@ export function validateData({ sources, events, editorial }) {
     }
     if (
       event.recommendation &&
-      !['Acompanhar', 'Avaliar', 'Considerar atuação'].includes(event.recommendation.type)
+      (typeof event.recommendation.type !== 'string' || !event.recommendation.type.trim() ||
+        typeof event.recommendation.text !== 'string' || !event.recommendation.text.trim() ||
+        !Array.isArray(event.recommendation.evidenceClaimIds) || !event.recommendation.evidenceClaimIds.length)
     )
-      errors.push(`Acontecimento ${event.id}: recomendação não permitida.`);
-    for (const id of event.recommendation?.evidenceClaimIds ?? [])
-      if (!claimIds.has(id))
-        errors.push(`Acontecimento ${event.id}: recomendação referencia afirmação inexistente (${id}).`);
+      errors.push(`Acontecimento ${event.id}: recomendação incompleta.`);
+    if (Array.isArray(event.recommendation?.evidenceClaimIds))
+      for (const id of event.recommendation.evidenceClaimIds)
+        if (!claimIds.has(id))
+          errors.push(`Acontecimento ${event.id}: recomendação referencia afirmação inexistente (${id}).`);
   }
 
   if (
@@ -97,7 +100,5 @@ export function validateData({ sources, events, editorial }) {
     editorial.windowDays < 1
   )
     errors.push('Editorial: referenceDate ou windowDays inválidos.');
-  for (const id of editorial.crossSourceSynthesis?.eventIds ?? [])
-    if (!eventIds.has(id)) errors.push(`Síntese referencia acontecimento inexistente (${id}).`);
   return errors;
 }

@@ -45,16 +45,11 @@ function renderSourceOverview(source, model) {
   button.dataset.sourceTarget = source.id;
   button.setAttribute('aria-pressed', 'false');
   button.setAttribute('aria-controls', 'source-detail');
-  button.setAttribute('aria-haspopup', 'dialog');
   const status = model.sourceStates.get(source.id);
-  button.append(
-    element('span', 'source-picker__name', source.name),
-    element('span', 'source-picker__summary', source.summary ?? source.scope),
-  );
+  button.append(element('span', 'source-picker__name', source.name));
   if (status.code !== 'unverified') {
-    button.append(element('span', `source-status source-status--${status.code}`, status.label));
+    button.append(element('span', `source-status source-status--${status.code} source-picker__status`, status.label));
   }
-  button.append(element('span', 'source-picker__action', 'Ver acontecimentos'));
   return button;
 }
 
@@ -203,33 +198,47 @@ export function renderReport(model) {
   const highlights = document.getElementById('highlights');
   highlights.replaceChildren();
   if (model.highlights.length) {
-    model.highlights.forEach((event) => {
+    const [featuredEvent, ...otherHighlights] = model.highlights;
+    const makeCard = (event, highlighted = false) => {
       const source = model.sources.find((item) => item.id === event.sourceId);
-      highlights.append(
-        makeEventCard(event, source?.name ?? event.issuer, {
-          highlighted: true,
-          referenceDate: model.editorial.referenceDate,
-        }),
-      );
-    });
+      return makeEventCard(event, source?.name ?? event.issuer, {
+        highlighted,
+        referenceDate: model.editorial.referenceDate,
+      });
+    };
+    const featured = makeCard(featuredEvent, true);
+    featured.classList.add('event-card--featured');
+    highlights.append(featured);
+    const sideEvents = [...otherHighlights];
+    for (const event of model.events) {
+      if (event.id !== featuredEvent.id && !sideEvents.some((item) => item.id === event.id)) {
+        sideEvents.push(event);
+      }
+      if (sideEvents.length >= 3) break;
+    }
+    while (sideEvents.length < 3) sideEvents.push(featuredEvent);
+
+    const aside = element('div', 'highlight-list__aside');
+    aside.setAttribute('aria-label', 'Outros acontecimentos em destaque');
+    sideEvents.slice(0, 3).forEach((event) => aside.append(makeCard(event)));
+    highlights.append(aside);
   } else {
     renderEmpty(highlights, 'Nenhum destaque atende aos critérios nesta janela.');
   }
 
   const synthesis = document.getElementById('synthesis');
   synthesis.replaceChildren();
-  if (model.synthesisEvents.length) {
-    synthesis.append(element('p', '', model.editorial.crossSourceSynthesis.text));
-    const references = element('div', 'synthesis-references');
-    model.synthesisEvents.forEach((event) => {
-      const button = element('button', 'text-button', event.officialIdentifier);
-      button.type = 'button';
-      button.dataset.openEvent = event.id;
-      references.append(button);
+  if (model.recommendations.length) {
+    model.recommendations.forEach(({ recommendation }) => {
+      const card = element('article', 'decision-card');
+      card.append(
+        element('p', 'decision-card__type', recommendation.type),
+        element('h3', 'decision-card__recommendation', recommendation.text),
+      );
+      synthesis.append(card);
     });
-    synthesis.append(references);
   } else {
-    renderEmpty(synthesis, 'Síntese indisponível neste cenário.');
+    renderEmpty(synthesis, 'Não há recomendações com suporte suficiente nesta amostra.');
   }
 
   const sampleLimits = document.getElementById('sample-limits');

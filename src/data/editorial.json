@@ -2,16 +2,6 @@
   "referenceDate": "2026-10-15",
   "windowDays": 30,
   "leadText": "No recorte de 16 de setembro a 15 de outubro, a amostra reúne duas publicações da Anvisa: a transição eletrônica do SNCR e uma campanha de farmacovigilância. DOU e Câmara aparecem com referências históricas fora da janela recente.",
-  "crossSourceSynthesis": {
-    "text": "Na amostra recente, a Anvisa publicou orientações sobre o SNCR e uma campanha de prevenção e notificação de erros de medicação. São materiais de naturezas distintas: uma transição de funcionalidades eletrônicas, com integração exigida para receitas brancas emitidas eletronicamente a partir de 30/10, e uma campanha institucional sem criação automática de obrigação para farmácias. A Resolução CM-CMED nº 4/2026 e as duas proposições da Câmara permanecem como referências anteriores, fora da janela de 30 dias. DOU e Câmara não têm novidades recentes demonstradas neste conjunto; isso não significa ausência de publicações ou movimentações nessas fontes.",
-    "eventIds": [
-      "sncr-transition-2026",
-      "anvisa-medication-error-campaign-2026",
-      "cmed-price-adjustment-2026",
-      "pl-2664-2025",
-      "pl-3307-2025"
-    ]
-  },
   "limitations": [
     "Esta POC apresenta uma amostra editorial estática, preparada manualmente a partir dos documentos oficiais vinculados; não executa coleta nem análise automática.",
     "Os estados de consulta são não verificados. Datas de publicação e movimentação referem-se aos documentos oficiais, não a processamento realizado pelo protótipo.",

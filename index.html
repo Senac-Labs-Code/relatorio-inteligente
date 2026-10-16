@@ -36,8 +36,12 @@
         </video>
         <div class="hero__shade" aria-hidden="true"></div>
         <div class="shell hero__content">
-          <p class="eyebrow">Relatório Vivo <span>/</span> Varejo Farmacêutico</p>
-          <h1 id="page-title">Panorama regulatório e legislativo do varejo farmacêutico</h1>
+          <p class="eyebrow">Inteligência estratégica do varejo farmacêutico</p>
+          <h1 id="page-title">
+            <span class="hero-title-line" style="--line-delay: 0ms"><span>Panorama regulatório e</span><span class="hero-title-cover" aria-hidden="true"></span></span>
+            <span class="hero-title-line" style="--line-delay: 140ms"><span>legislativo do varejo</span><span class="hero-title-cover" aria-hidden="true"></span></span>
+            <span class="hero-title-line" style="--line-delay: 280ms"><span>farmacêutico</span><span class="hero-title-cover" aria-hidden="true"></span></span>
+          </h1>
           <p class="hero__lead">
             Análise dos acontecimentos oficiais, seus possíveis efeitos sobre o setor e os temas que merecem
             acompanhamento institucional.
@@ -46,8 +50,10 @@
             <p class="reference-date">
               Janela de referência <time id="window-start"></time> — <time id="reference-date"></time>
             </p>
-            <p class="demo-note">Demonstração com dados de referência</p>
           </div>
+        </div>
+        <div class="hero-indicators section-shell">
+          <div id="indicators" class="indicator-list" aria-label="Indicadores do conjunto de referência"></div>
         </div>
       </section>
 
@@ -61,35 +67,49 @@
           <noscript><p class="load-message">Este relatório requer JavaScript e acesso por HTTP.</p></noscript>
         </div>
 
-        <div id="indicators" class="indicator-list" aria-label="Indicadores do conjunto de referência"></div>
-
         <section class="overview-highlights" aria-labelledby="highlights-title">
-          <div class="section-heading section-heading--compact">
-            <p class="eyebrow">Seleção editorial · 30 dias</p>
-            <h3 id="highlights-title">Destaques prioritários</h3>
-          </div>
           <div id="highlights" class="highlight-list"></div>
         </section>
 
         <section class="source-overview" aria-labelledby="source-overview-title">
-          <div class="section-heading section-heading--compact">
-            <p class="eyebrow">Cobertura da amostra</p>
-            <h3 id="source-overview-title">Panorama das fontes</h3>
+          <div class="intelligence-background" aria-hidden="true">
+            <svg viewBox="0 0 1200 420" preserveAspectRatio="none" focusable="false">
+              <path class="network-path" pathLength="1" d="M1128 0v118c0 34-42 34-42 68s42 34 42 68v166M1148 0v90c0 46-68 46-68 92s68 46 68 92v246M72 420v-82c0-28 36-28 36-56s-36-28-36-56V0" />
+              <circle class="network-packet" r="1.5" style="--flow-delay: -1s; offset-path: path('M 1128 0 V 118 C 1128 152 1086 152 1086 186 S 1128 220 1128 254 V 420');" />
+              <circle class="network-insight" cx="1128" cy="420" r="1.7" style="--flow-delay: -1s;" />
+              <circle class="network-halo" cx="1128" cy="420" r="4" style="--flow-delay: -1s;" />
+              <circle class="network-packet" r="1.5" style="--flow-delay: -4s; offset-path: path('M 1148 0 V 90 C 1148 136 1080 136 1080 182 S 1148 228 1148 274 V 496');" />
+              <circle class="network-insight" cx="1148" cy="496" r="1.7" style="--flow-delay: -4s;" />
+              <circle class="network-halo" cx="1148" cy="496" r="4" style="--flow-delay: -4s;" />
+              <circle class="network-packet" r="1.5" style="--flow-delay: -2.5s; offset-path: path('M 72 420 V 338 C 72 310 108 310 108 282 S 72 254 72 226 V 0');" />
+            </svg>
           </div>
-          <div
-            id="source-overview-list"
-            class="source-picker"
-            role="group"
-            aria-label="Selecionar fonte para consultar os acontecimentos"
-          ></div>
+          <div class="source-overview__inner">
+            <div class="section-heading">
+              <p class="eyebrow">Cobertura da amostra</p>
+              <h2 id="source-overview-title">Panorama das fontes</h2>
+            </div>
+            <div
+              id="source-overview-list"
+              class="source-picker"
+              role="group"
+              aria-label="Selecionar fonte para consultar os acontecimentos"
+            ></div>
+            <section
+              id="source-detail"
+              class="source-detail"
+              aria-label="Acontecimentos da fonte selecionada"
+              aria-live="polite"
+            ></section>
+          </div>
         </section>
 
         <section class="synthesis" aria-labelledby="synthesis-title">
           <div class="synthesis__heading">
-            <p class="eyebrow">Contexto transversal</p>
-            <h3 id="synthesis-title">Leitura entre fontes</h3>
+            <p class="eyebrow">Síntese transversal</p>
+            <h2 id="synthesis-title">O que isso pode significar para a Fecomércio</h2>
           </div>
-          <div id="synthesis" class="synthesis__content"></div>
+          <div id="synthesis" class="decision-grid" aria-live="polite"></div>
         </section>
 
         <details class="method-note">
@@ -105,22 +125,6 @@
         <p>Fecomércio · Inteligência para o varejo farmacêutico</p>
       </div>
     </footer>
-
-    <dialog class="source-dialog" id="source-dialog" aria-labelledby="source-dialog-label" aria-modal="true">
-      <header class="source-dialog__header">
-        <h2 class="visually-hidden" id="source-dialog-label">Detalhes da fonte</h2>
-        <p class="eyebrow">Panorama das fontes</p>
-        <button class="icon-button" type="button" data-close-source aria-label="Fechar painel da fonte">
-          Fechar <span aria-hidden="true">×</span>
-        </button>
-      </header>
-      <section
-        id="source-detail"
-        class="source-detail"
-        aria-label="Acontecimentos da fonte selecionada"
-        aria-live="polite"
-      ></section>
-    </dialog>
 
     <dialog class="event-dialog" id="event-dialog" aria-labelledby="dialog-title">
       <div class="event-dialog__header">

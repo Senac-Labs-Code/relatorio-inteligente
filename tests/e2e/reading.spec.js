@@ -12,44 +12,67 @@ test('carrega os módulos e dados locais sem falhas de console', async ({ page }
   await page.goto('/');
   await expect(page.getByRole('heading', { name: /Panorama regulatório/ })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'O que merece atenção' })).toBeVisible();
-  await expect(page.getByText('Demonstração com dados de referência')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'O que isso pode significar para a Fecomércio' })).toBeVisible();
+  await expect(page.getByText('Demonstração com dados de referência')).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 
-test('cards abrem painel lateral de fonte, que pode ser fechado para voltar ao panorama', async ({
+test('síntese transversal exibe cards de recomendação dinâmicos com rede de fundo proporcional', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+  const recommendations = page.locator('#synthesis .decision-card');
+  await expect(recommendations).toHaveCount(3);
+  await expect(recommendations.first().locator('.decision-card__type')).toHaveText('Acompanhar');
+  await expect(recommendations.first().locator('h3')).toContainText('Acompanhar a orientação oficial');
+  await expect(page.locator('#synthesis')).not.toContainText('Na amostra recente');
+  await expect(page.locator('.synthesis__note')).toHaveCount(0);
+  const section = page.locator('.synthesis');
+  await section.scrollIntoViewIfNeeded();
+  await expect(section).toHaveClass(/network-entered/);
+  await expect(section).toHaveClass(/network-running/);
+  const geometry = await section.locator('.intelligence-background svg').evaluate((svg) => {
+    const [width, height] = svg.getAttribute('viewBox').split(' ').slice(2).map(Number);
+    const bounds = svg.getBoundingClientRect();
+    const packet = svg.querySelector('.network-packet').getBBox();
+    return { width, height, renderedWidth: bounds.width, renderedHeight: bounds.height, packetWidth: packet.width, packetHeight: packet.height };
+  });
+  expect(Math.abs(geometry.width - geometry.renderedWidth)).toBeLessThanOrEqual(1);
+  expect(Math.abs(geometry.height - geometry.renderedHeight)).toBeLessThanOrEqual(1);
+  expect(geometry.packetWidth).toBeCloseTo(geometry.packetHeight, 2);
+  await expect(page.locator('.source-overview .network-packet')).toHaveCount(3);
+});
+
+test('fontes atualizam o card de detalhes inline e levam a pessoa até ele', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/');
   const sourceCards = page.locator('#source-overview-list [data-source-target]');
-  const sourceDialog = page.locator('#source-dialog');
+  const sourceDetail = page.locator('#source-detail');
   await expect(sourceCards).toHaveCount(3);
-  await expect(sourceDialog).not.toBeVisible();
+  await expect(page.locator('.source-picker__summary, .source-picker__action')).toHaveCount(0);
+  await expect(sourceDetail.locator('h3')).toHaveText('ANVISA');
+  await expect(sourceCards.nth(0)).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('#source-dialog')).toHaveCount(0);
   await sourceCards.nth(0).focus();
   await page.keyboard.press('Enter');
-  await expect(sourceDialog).toBeVisible();
-  await expect(page.locator('#source-detail h3')).toHaveText('ANVISA');
-  await expect(sourceCards.nth(0)).toHaveAttribute('aria-pressed', 'true');
-  const panelBounds = await sourceDialog.boundingBox();
-  expect(panelBounds.x).toBeGreaterThan(400);
-  await page.waitForFunction(() => {
-    const bounds = document.querySelector('#source-dialog').getBoundingClientRect();
-    return Math.abs(bounds.right - window.innerWidth) < 1;
-  });
-  await page.locator('[data-close-source]').click();
-  await expect(sourceDialog).not.toBeVisible();
-  await expect(sourceCards.nth(0)).toHaveAttribute('aria-pressed', 'false');
-  await expect(sourceCards.nth(0)).toBeFocused();
+  await expect(sourceDetail.locator('h3')).toHaveText('ANVISA');
   await sourceCards.nth(1).click();
-  await expect(sourceDialog).toBeVisible();
-  await expect(page.locator('#source-detail h3')).toHaveText('Diário Oficial da União');
-  await expect(page.locator('#source-detail')).toContainText('Resolução CM-CMED');
-  await page.keyboard.press('Escape');
-  await expect(sourceDialog).not.toBeVisible();
-  await expect(sourceCards.nth(1)).toBeFocused();
+  await expect(sourceDetail.locator('h3')).toHaveText('Diário Oficial da União');
+  await expect(sourceDetail).toContainText('Resolução CM-CMED');
+  await expect(sourceCards.nth(1)).toHaveAttribute('aria-pressed', 'true');
+  await expect(sourceCards.nth(0)).toHaveAttribute('aria-pressed', 'false');
+  await expect
+    .poll(() =>
+      sourceDetail.evaluate((element) => {
+        const bounds = element.getBoundingClientRect();
+        return bounds.top >= 0 && bounds.top < window.innerHeight;
+      }),
+    )
+    .toBe(true);
   await sourceCards.nth(2).click();
-  await expect(page.locator('#source-detail h3')).toHaveText('Câmara dos Deputados');
-  await expect(page.locator('#source-detail')).toContainText('Assuntos anteriores em acompanhamento');
+  await expect(sourceDetail.locator('h3')).toHaveText('Câmara dos Deputados');
+  await expect(sourceDetail).toContainText('Assuntos anteriores em acompanhamento');
   await expect(page.locator('.site-header nav')).toHaveCount(0);
   await expect(page).not.toHaveURL(/#source-/);
 });
@@ -138,7 +161,6 @@ test('links externos seguros e ausência de funcionalidades excluídas ou contro
             !button.dataset.openEvent &&
             !button.dataset.openIndicator &&
             !button.dataset.sourceTarget &&
-            !button.hasAttribute('data-close-source') &&
             !button.hasAttribute('data-close-dialog'),
         ),
       ),

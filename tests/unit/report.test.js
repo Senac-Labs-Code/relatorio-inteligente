@@ -9,9 +9,9 @@ import {
   getRecentEvents,
   getSupportedClaims,
   getSourceDisplayStatus,
-  getSynthesisSupport,
   hasEvidenceForClaim,
   isEligibleForPublicAnalysis,
+  createReportModel,
 } from '../../src/js/domain/report.js';
 
 const sources = JSON.parse(await readFile(new URL('../../src/data/sources.json', import.meta.url)));
@@ -160,16 +160,33 @@ test('RN-08/RN-09 suppress claims without official evidence and distinguishes fa
   );
 });
 
-test('RN-10/RN-14 validate synthesis references and return a controlled error for missing IDs', () => {
-  assert.equal(getSynthesisSupport(['sncr-transition-2026'], events)[0].id, 'sncr-transition-2026');
-  assert.throws(() => getSynthesisSupport(['missing-event'], events), /inexistente/);
-  const invalidEditorial = {
-    ...editorial,
-    crossSourceSynthesis: { ...editorial.crossSourceSynthesis, eventIds: ['missing-event'] },
+test('recomendações dinâmicas são expostas apenas quando todos os suportes têm evidência oficial', () => {
+  const model = createReportModel({ sources, events, editorial });
+  assert.equal(model.recommendations.length, 3);
+  assert.equal(model.recommendations[0].recommendation.type, 'Acompanhar');
+  const unsupported = {
+    ...clone(sncr),
+    recommendation: { ...sncr.recommendation, evidenceClaimIds: ['sncr-hypothesis'] },
+    evidence: sncr.evidence.filter((item) => item.claimId !== 'sncr-hypothesis'),
   };
+  const unsupportedModel = createReportModel({ sources, events: [unsupported], editorial });
+  assert.equal(unsupportedModel.recommendations.length, 0);
+});
+
+test('validador aceita tipos de recomendação enviados dinamicamente e rejeita campos incompletos', () => {
+  const eventWithDynamicType = {
+    ...clone(sncr),
+    recommendation: { ...sncr.recommendation, type: 'Orientar o setor' },
+  };
+  const dynamicEvents = events.map((event) => event.id === sncr.id ? eventWithDynamicType : event);
+  const dynamicTypeErrors = validateData({ sources, events: dynamicEvents, editorial });
+  assert.equal(dynamicTypeErrors.some((message) => message.includes('recomendação')), false);
+  const invalidEvents = events.map((event) => event.id === sncr.id
+    ? { ...clone(sncr), recommendation: { type: '', text: '', evidenceClaimIds: 42 } }
+    : event);
   assert.ok(
-    validateData({ sources, events, editorial: invalidEditorial }).some((message) =>
-      message.includes('inexistente'),
+    validateData({ sources, events: invalidEvents, editorial }).some((message) =>
+      message.includes('recomendação incompleta'),
     ),
   );
 });
